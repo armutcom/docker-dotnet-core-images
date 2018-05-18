@@ -1,4 +1,4 @@
-FROM armutcom/ubuntu-18.04:core-2.0-runtime
+FROM armutcom/dotnet-core-runtime:2.0.7-bionic
 
 # set up network
 ENV ASPNETCORE_URLS http://+:80

@@ -1,4 +1,4 @@
-FROM armutteknoloji/ubuntu-16.04-dotnet:runtime-2.0.7
+FROM armutcom/dotnet-core-runtime:2.0.7-xenial
 
 # set up network
 ENV ASPNETCORE_URLS http://+:80

@@ -1,8 +1,4 @@
-FROM armutcom/ubuntu-18.04:core-2.0-sdk
-
-# set up environment
-ENV ASPNETCORE_URLS http://+:80
-ENV ASPNETCORE_PKG_VERSION 2.0.8
+FROM armutcom/aspnet-core:2.0.8-xenial
 
 # set up node
 ENV NODE_VERSION 8.11.2
@@ -18,13 +14,4 @@ RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
     && npm install -g bower gulp \
     && echo '{ "allow_root": true }' > /root/.bowerrc
 
-# warmup NuGet package cache
-COPY packagescache.csproj /tmp/warmup/
-RUN dotnet restore /tmp/warmup/packagescache.csproj \
-        --source https://api.nuget.org/v3/index.json \
-        --verbosity quiet \
-    && rm -rf /tmp/warmup/
-
-WORKDIR /
-	
 MAINTAINER Armut.com <dev@armut.com>

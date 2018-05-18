@@ -1,4 +1,4 @@
-FROM armutcom/ubuntu-18.04:runtime-deps
+FROM armutcom/dotnet-core-runtime:2.0.7-deps-bionic
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

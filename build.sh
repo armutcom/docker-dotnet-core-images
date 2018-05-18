@@ -1,42 +1,117 @@
 #!/usr/bin/env bash
 
-#exit if any command fails
-set -e
+##########################################################################
+# This is the Cake bootstrapper script for Linux and OS X.
+# This file was downloaded from https://github.com/cake-build/resources
+# Feel free to change this file to fit your needs.
+##########################################################################
 
-DOTNET_VERSION=$1
-OS_VERSION=$2
-DOTNET_SDK_VERSION=$3
-DOTNET_RUNTIME_VERSION=$4
+# Define directories.
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+TOOLS_DIR=$SCRIPT_DIR/tools
+ADDINS_DIR=$TOOLS_DIR/Addins
+MODULES_DIR=$TOOLS_DIR/Modules
+NUGET_EXE=$TOOLS_DIR/nuget.exe
+CAKE_EXE=$TOOLS_DIR/Cake/Cake.exe
+PACKAGES_CONFIG=$TOOLS_DIR/packages.config
+PACKAGES_CONFIG_MD5=$TOOLS_DIR/packages.config.md5sum
+ADDINS_PACKAGES_CONFIG=$ADDINS_DIR/packages.config
+MODULES_PACKAGES_CONFIG=$MODULES_DIR/packages.config
 
-REPO=armutteknoloji
-TAG_RUNTIME_DEPS=$REPO/$OS_VERSION-dotnet:runtime-deps-$DOTNET_RUNTIME_VERSION
-TAG_RUNTIME=$REPO/$OS_VERSION-dotnet:runtime-$DOTNET_RUNTIME_VERSION
-TAG_SDK=$REPO/$OS_VERSION-dotnet:$DOTNET_RUNTIME_VERSION-sdk-$DOTNET_SDK_VERSION
+# Define md5sum or md5 depending on Linux/OSX
+MD5_EXE=
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    MD5_EXE="md5 -r"
+else
+    MD5_EXE="md5sum"
+fi
 
-TAG_ASPNET_RUNTIME=$REPO/$OS_VERSION-aspnet:runtime-$DOTNET_RUNTIME_VERSION
-TAG_ASPNET_BUILD=$REPO/$OS_VERSION-aspnet:build-$DOTNET_RUNTIME_VERSION
+# Define default arguments.
+SCRIPT="build.cake"
+CAKE_ARGUMENTS=()
 
-TAG_RUNTIME_LATEST=$REPO/$OS_VERSION-dotnet:latest
-TAG_ASPNET_RUNTIME_LATEST=$REPO/$OS_VERSION-aspnet:latest
+# Parse arguments.
+for i in "$@"; do
+    case $1 in
+        -s|--script) SCRIPT="$2"; shift ;;
+        --) shift; CAKE_ARGUMENTS+=("$@"); break ;;
+        *) CAKE_ARGUMENTS+=("$1") ;;
+    esac
+    shift
+done
 
-docker build -f ./$DOTNET_VERSION/$OS_VERSION/dotnet-core/runtime-deps/Dockerfile -t $TAG_RUNTIME_DEPS ./$DOTNET_VERSION/$OS_VERSION/dotnet-core/runtime-deps/
-docker build -f ./$DOTNET_VERSION/$OS_VERSION/dotnet-core/runtime/Dockerfile -t $TAG_RUNTIME ./$DOTNET_VERSION/$OS_VERSION/dotnet-core/runtime/
-docker build -f ./$DOTNET_VERSION/$OS_VERSION/dotnet-core/sdk/Dockerfile -t $TAG_SDK ./$DOTNET_VERSION/$OS_VERSION/dotnet-core/sdk/
+# Make sure the tools folder exist.
+if [ ! -d "$TOOLS_DIR" ]; then
+  mkdir "$TOOLS_DIR"
+fi
 
-docker build -f ./$DOTNET_VERSION/$OS_VERSION/aspnet-core/runtime/Dockerfile -t $TAG_ASPNET_RUNTIME ./$DOTNET_VERSION/$OS_VERSION/aspnet-core/runtime/
-docker build -f ./$DOTNET_VERSION/$OS_VERSION/aspnet-core/build/Dockerfile -t $TAG_ASPNET_BUILD ./$DOTNET_VERSION/$OS_VERSION/aspnet-core/build/
+# Make sure that packages.config exist.
+if [ ! -f "$TOOLS_DIR/packages.config" ]; then
+    echo "Downloading packages.config..."
+    curl -Lsfo "$TOOLS_DIR/packages.config" https://cakebuild.net/download/bootstrapper/packages
+    if [ $? -ne 0 ]; then
+        echo "An error occurred while downloading packages.config."
+        exit 1
+    fi
+fi
 
-docker tag $TAG_RUNTIME $TAG_RUNTIME_LATEST
-docker tag $TAG_ASPNET_RUNTIME $TAG_ASPNET_RUNTIME_LATEST
+# Download NuGet if it does not exist.
+if [ ! -f "$NUGET_EXE" ]; then
+    echo "Downloading NuGet..."
+    curl -Lsfo "$NUGET_EXE" https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+    if [ $? -ne 0 ]; then
+        echo "An error occurred while downloading nuget.exe."
+        exit 1
+    fi
+fi
 
-docker login -u "$(DOCKER_USER)" -p "$(DOCKER_PASS)"
+# Restore tools from NuGet.
+pushd "$TOOLS_DIR" >/dev/null
+if [ ! -f "$PACKAGES_CONFIG_MD5" ] || [ "$( cat "$PACKAGES_CONFIG_MD5" | sed 's/\r$//' )" != "$( $MD5_EXE "$PACKAGES_CONFIG" | awk '{ print $1 }' )" ]; then
+    find . -type d ! -name . ! -name 'Cake.Bakery' | xargs rm -rf
+fi
 
-docker push $TAG_RUNTIME_DEPS
-docker push $TAG_RUNTIME
-docker push $TAG_SDK
+mono "$NUGET_EXE" install -ExcludeVersion
+if [ $? -ne 0 ]; then
+    echo "Could not restore NuGet tools."
+    exit 1
+fi
 
-docker push $TAG_ASPNET_RUNTIME
-docker push $TAG_ASPNET_BUILD
+$MD5_EXE "$PACKAGES_CONFIG" | awk '{ print $1 }' >| "$PACKAGES_CONFIG_MD5"
 
-docker push $TAG_RUNTIME_LATEST
-docker push $TAG_ASPNET_RUNTIME_LATEST
+popd >/dev/null
+
+# Restore addins from NuGet.
+if [ -f "$ADDINS_PACKAGES_CONFIG" ]; then
+    pushd "$ADDINS_DIR" >/dev/null
+
+    mono "$NUGET_EXE" install -ExcludeVersion
+    if [ $? -ne 0 ]; then
+        echo "Could not restore NuGet addins."
+        exit 1
+    fi
+
+    popd >/dev/null
+fi
+
+# Restore modules from NuGet.
+if [ -f "$MODULES_PACKAGES_CONFIG" ]; then
+    pushd "$MODULES_DIR" >/dev/null
+
+    mono "$NUGET_EXE" install -ExcludeVersion
+    if [ $? -ne 0 ]; then
+        echo "Could not restore NuGet modules."
+        exit 1
+    fi
+
+    popd >/dev/null
+fi
+
+# Make sure that Cake has been installed.
+if [ ! -f "$CAKE_EXE" ]; then
+    echo "Could not find Cake.exe at '$CAKE_EXE'."
+    exit 1
+fi
+
+# Start Cake
+exec mono "$CAKE_EXE" $SCRIPT "${CAKE_ARGUMENTS[@]}"

@@ -1,0 +1,26 @@
+language: csharp  
+sudo: required  
+dist: trusty
+mono: 5.10.0
+os:  
+  - linux
+branches:  
+  only:
+    - master
+    - /.*/
+services:
+  - docker
+before_script:
+- chmod +x ./build.sh
+script:  
+  - ./build.sh
+after_script:
+  - docker images
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+deploy:
+  provider: script
+  script: chmod +x ./build.sh && ./build.sh --target=Publish
+  skip_cleanup: true
+  on:
+    branch: master

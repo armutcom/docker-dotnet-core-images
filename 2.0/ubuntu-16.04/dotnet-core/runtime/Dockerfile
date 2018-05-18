@@ -1,4 +1,4 @@
-FROM armutteknoloji/ubuntu-16.04-dotnet:runtime-deps-2.0
+FROM armutcom/dotnet-core-runtime:2.0.7-deps-xenial
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
