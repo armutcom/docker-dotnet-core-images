@@ -81,9 +81,27 @@ if (!(Test-Path "$TOOLS_DIR/tools.csproj")) {
     }
 }
 
+# Make sure that dotnet core installed.
+try {
+    dotnet --version
+}
+catch {
+    Throw "Error: dotnet is not installed."
+}
+
+# Make sure that docker installed.
+try {
+    docker --version
+}
+catch {
+    Throw "Error: docker is not installed."
+}
+
 # Add dependencies
 dotnet add $TOOLS_DIR/tools.csproj package Cake.CoreCLR -v $CAKE_VERSION --package-directory $TOOLS_DIR/Cake.CoreCLR.$CAKE_VERSION
 dotnet add $TOOLS_DIR/tools.csproj package Cake.Bakery -v $CAKE_BAKERY_VERSION --package-directory $TOOLS_DIR/Cake.Bakery
+
+docker rm -f $(docker ps -a -q)
 
 # Make sure that Cake has been installed.
 if (!(Test-Path $CAKE_EXE)) {

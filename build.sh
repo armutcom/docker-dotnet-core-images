@@ -48,9 +48,23 @@ if [ ! -f "$TOOLS_DIR/tools.csproj" ]; then
     fi
 fi
 
+# Make sure that dotnet core installed.
+if ! [ -x "$(command -v dotnet)" ]; then
+  echo 'Error: dotnet is not installed.' >&2
+  exit 1
+fi
+
+# Make sure that docker installed.
+if ! [ -x "$(command -v docker)" ]; then
+  echo 'Error: docker is not installed.' >&2
+  exit 1
+fi
+
 # Add dependencies
 dotnet add $TOOLS_DIR/tools.csproj package Cake.CoreCLR -v $CAKE_VERSION --package-directory $TOOLS_DIR/Cake.CoreCLR.$CAKE_VERSION
 dotnet add $TOOLS_DIR/tools.csproj package Cake.Bakery -v $CAKE_BAKERY_VERSION --package-directory $TOOLS_DIR/Cake.Bakery
+
+docker rm -f $(docker ps -a -q)
 
 # Make sure that Cake has been installed.
 if [ ! -f "$CAKE_EXE" ]; then

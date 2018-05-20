@@ -79,7 +79,7 @@ Task("Build-Containers")
 
 Task("Tests")
   .IsDependentOn("Build-Containers")
-  .Does(() =>{
+  .Does(async () =>{
     foreach (var test in manifest.tests)
     {
       DockerImageBuildSettings settings = new DockerImageBuildSettings();
@@ -98,9 +98,10 @@ Task("Tests")
 
         DockerRun(runSettings, test.name, null);
 
-        System.Threading.Thread.Sleep(3000);
+        System.Threading.Thread.Sleep(5000);
 
         HttpClient client = new HttpClient();
+        client.Timeout = new TimeSpan(0, 0, 7000);
 
         foreach (var httpCall in test.httpCalls)
         {
@@ -109,7 +110,7 @@ Task("Tests")
             Information("Http call " + url);
             try
             {
-              HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+              HttpResponseMessage response = await client.GetAsync(url);
 
               if (response.IsSuccessStatusCode)
               {
@@ -133,6 +134,16 @@ Task("Tests")
 Task("Publish")
     .Does(() =>
 {
+  var commitMessage = EnvironmentVariable("TRAVIS_COMMIT_MESSAGE") ?? "";
+  var triggerDeploy = commitMessage.Contains("trigger deploy");
+  Information(string.Format("Commit message : {0}", commitMessage));
+
+  if(!triggerDeploy)
+  {
+    Information("deploy skipped");
+    return;
+  }
+
   IList<string> tags = new List<string>();
 
   foreach(Repo repo in manifest.repos)

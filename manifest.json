@@ -104,30 +104,32 @@
                         "latest"
                     ]
                 },
-                // {
-                //     "id": 3,
-                //     "name": "runtime-spa",
-                //     "osType": "linux",
-                //     "os": "xenial",
-                //     "dockerfile": "2.0/ubuntu-16.04/aspnet-core/runtime-spa/",
-                //     "tags": [
-                //         "2.0.8-spa-node-8-xenial",
-                //         "spa-xenial-latest"
-                //     ]
-                // },
-                // {
-                //     "id": 4,
-                //     "name": "runtime-spa",
-                //     "osType": "linux",
-                //     "os": "bionic",
-                //     "dockerfile": "2.0/ubuntu-18.04/aspnet-core/runtime-spa/",
-                //     "tags": [
-                //         "2.0.8-spa-node-8-bionic",
-                //         "spa-bionic-latest",
-                //         "spa-latest",
-                //         "spa"
-                //     ]
-                // },
+                {
+                    "id": 3,
+                    "name": "runtime-spa",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.0/ubuntu-16.04/aspnet-core/runtime-spa/",
+                    "tags": [
+                        "2.0.8-spa-node-8-xenial",
+                        "spa-xenial-latest",
+                        "spa-xenial"
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "runtime-spa",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.0/ubuntu-18.04/aspnet-core/runtime-spa/",
+                    "tags": [
+                        "2.0.8-spa-node-8-bionic",
+                        "spa-bionic-latest",
+                        "spa-bionic",
+                        "spa-latest",
+                        "spa"
+                    ]
+                },
                 {
                     "id": 5,
                     "name": "build",
@@ -136,6 +138,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/aspnet-core/build/",
                     "tags": [
                         "2.0.8-sdk-2.1.200-build-xenial",
+                        "2.0.8-sdk-2.1.200-node-8-build-xenial",
                         "build-xenial-latest"
                     ]
                 },
@@ -147,6 +150,7 @@
                     "dockerfile": "2.0/ubuntu-18.04/aspnet-core/build/",
                     "tags": [
                         "2.0.8-sdk-2.1.200-build-bionic",
+                        "2.0.8-sdk-2.1.200-node-8-build-bionic",
                         "build-bionic-latest",
                         "build-latest",
                         "build"
@@ -208,6 +212,36 @@
             "httpCalls" : [
                 "/",
                 "/api/"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "aspnet-runtime-spa-2.0.8-tests-xenial",
+            "testAppPath": "tests/2.0/TestAngularServerSideRendering/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.0.8-spa-node-8-xenial",
+                "base_image_build=armutcom/aspnet-core:2.0.8-sdk-2.1.200-build-xenial",
+                "project_path=.",
+                "run_target=TestAngularServerSideRendering.dll"
+            ],
+            "port" : 22347,
+            "httpCalls" : [
+                "/"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "aspnet-runtime-spa-2.0.8-tests-bionic",
+            "testAppPath": "tests/2.0/TestAngularServerSideRendering/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.0.8-spa-node-8-bionic",
+                "base_image_build=armutcom/aspnet-core:2.0.8-sdk-2.1.200-build-bionic",
+                "project_path=.",
+                "run_target=TestAngularServerSideRendering.dll"
+            ],
+            "port" : 22348,
+            "httpCalls" : [
+                "/"
             ]
         }
     ]
