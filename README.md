@@ -14,6 +14,7 @@ This repo contains the base Docker images for working with .NET Core and the .NE
 - .NET Core Runtime 2.0 : [`2.0.7-xenial`, `xenial-latest` (*2.0/ubuntu-16.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/dotnet-core/runtime/Dockerfile)
 - .NET Core Sdk 2.0 : [`2.1.200-runtime-2.0.7-xenial` (*2.0/ubuntu-16.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/dotnet-core/sdk/Dockerfile)
 - ASP.NET Core 2.0 : [`2.0.8-xenial`, `xenial-latest` (*2.0/ubuntu-16.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/aspnet-core/runtime/Dockerfile)
+- ASP.NET Core 2.0 SPA : [`2.0.8-spa-node-8-xenial`, `spa-xenial-latest`, `spa-xenial` (*2.0/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile)
 - ASP.NET Core Build 2.0 : [`2.0.8-sdk-2.1.200-build-xenial`, `build-xenial-latest` (*2.0/ubuntu-16.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/aspnet-core/build/Dockerfile)
 
 ## Ubuntu Bionic (18.04) amd64 tags
@@ -21,6 +22,7 @@ This repo contains the base Docker images for working with .NET Core and the .NE
 - .NET Core Runtime 2.0 : [`2.0.7-bionic`, `bionic-latest`, `latest` (*2.0/ubuntu-18.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
 - .NET Core Sdk 2.0 : [`2.1.200-runtime-2.0.7-bionic`, `latest`(*2.0/ubuntu-18.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
 - ASP.NET Core 2.0 : [`2.0.8-bionic`, `bionic-latest`, `latest` (*2.0/ubuntu-18.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
+- ASP.NET Core 2.0 SPA : [`2.0.8-spa-node-8-bionic`, `spa-xenial-bionic`, `spa-bionic`, `spa` (*2.0/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile)
 - ASP.NET Core Build 2.0 : [`2.0.8-sdk-2.1.200-build-bionic`, `build-bionic-latest`, `build-latest`, `build` (*2.0/ubuntu-18.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/build/Dockerfile)
 
 ## Image variants
@@ -29,7 +31,11 @@ The `armutcom/dotnet-core-runtime/`, `armutcom/dotnet-core-sdk/`, `armutcom/aspn
 
 ### `armutcom/aspnet-core:<version>-<os>`
 
-This image contains the ASP.NET Core and .NET Core runtimes and libraries and is optimized for running ASP.NET Core apps in production
+This image contains the ASP.NET Core and .NET Core runtimes and libraries and is optimized for running ASP.NET Core apps in production.
+
+### `armutcom/aspnet-core:<version>-spa-node-<node-version>-<os>`
+
+This image contains the ASP.NET Core, .NET Core and Node.js runtimes and libraries and is optimized for running ASP.NET Core SPA apps (server pre-rendering) like [Angular Universal](https://universal.angular.io/overview/) or [React Server Rendering](https://redux.js.org/recipes/server-rendering) in production.
 
 ### `armutcom/dotnet-core-runtime:<version>-<os>`
 
@@ -51,16 +57,16 @@ Use this image for your development process (developing, building and testing ap
 
 This image contains the native dependencies needed by .NET Core. It does not include .NET Core. It is for  [self-contained](https://docs.microsoft.com/dotnet/articles/core/deploying/index) applications.
 
-### `armutcom/aspnet-core:<aspnet-version>-sdk-<sdk-version>-build-<os>`
+### `armutcom/aspnet-core:<aspnet-version>-sdk-<sdk-version>-node-<node-version>-build-<os>`
 
-This is the build image. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
+This is the build image for bot ASP.NET Core and ASP.NET Core SPA apps (server pre-rendering) like [Angular Universal](https://universal.angular.io/overview/) or [React Server Rendering](https://redux.js.org/recipes/server-rendering). It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
 It contains the both .NET Core SDK which is comprised of two parts and Node.js:
 
 1. .NET Core CLI
 1. .NET Core
 1. ASP.NET Core
-1. Node.js 8.11.2
+1. Node.js
 
 Use this image for your development process (developing, building and testing applications).
 
