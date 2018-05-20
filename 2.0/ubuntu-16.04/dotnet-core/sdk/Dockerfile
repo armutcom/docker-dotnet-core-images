@@ -65,4 +65,4 @@ RUN mkdir warmup \
 # tooling to use -nowarn:MSB3202 to ignore issues with the .dcproj project
 ENV RestoreUseSkipNonexistentTargets false
 	
-MAINTAINER Armut.com <dev@armut.com>
+LABEL authors="Armut.com <dev@armut.com>"

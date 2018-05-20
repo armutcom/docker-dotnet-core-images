@@ -21,4 +21,4 @@ RUN apt-get update \
 # Enable detection of running in a container
 ENV DOTNET_RUNNING_IN_CONTAINER=true
 
-MAINTAINER Armut.com <dev@armut.com>
+LABEL authors="Armut.com <dev@armut.com>"

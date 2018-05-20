@@ -12,4 +12,4 @@ RUN for version in '2.0.0' '2.0.3' '2.0.5' '2.0.6' '2.0.7' '2.0.8'; do \
         && rm /tmp/runtimestore.tar.gz; \
     done
 	
-MAINTAINER Armut.com <dev@armut.com>
+LABEL authors="Armut.com <dev@armut.com>"

@@ -14,4 +14,4 @@ RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
     && npm install -g bower gulp \
     && echo '{ "allow_root": true }' > /root/.bowerrc
 
-MAINTAINER Armut.com <dev@armut.com>
+LABEL authors="Armut.com <dev@armut.com>"

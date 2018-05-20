@@ -17,4 +17,4 @@ RUN curl -SL $DOTNET_DOWNLOAD_URL --output dotnet.tar.gz \
     && rm dotnet.tar.gz \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 	
-MAINTAINER Armut.com <dev@armut.com>
+LABEL authors="Armut.com <dev@armut.com>"

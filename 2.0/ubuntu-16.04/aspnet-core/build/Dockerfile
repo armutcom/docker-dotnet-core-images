@@ -27,4 +27,4 @@ RUN dotnet restore /tmp/warmup/packagescache.csproj \
 
 WORKDIR /
 	
-MAINTAINER Armut.com <dev@armut.com>
+LABEL authors="Armut.com <dev@armut.com>"
