@@ -1,7 +1,7 @@
 language: csharp  
 sudo: required  
 dist: trusty
-mono: 5.10.0
+dotnet: 2.0.0
 os:  
   - linux
 branches:  
@@ -20,7 +20,7 @@ before_deploy:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: chmod +x ./build.sh && ./build.sh --target=Publish
+  script: if [[ $TRAVIS_COMMIT_MESSAGE == *"trigger deploy"* ]]; then chmod +x ./build.sh && ./build.sh --target=Publish ; fi ;
   skip_cleanup: true
   on:
     branch: master

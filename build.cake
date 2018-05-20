@@ -1,8 +1,8 @@
-#addin nuget:?package=Cake.Json
-#addin nuget:?package=Cake.Docker
-#addin nuget:?package=Cake.Http
-#addin nuget:?package=Newtonsoft.Json&version=9.0.1
-#addin nuget:?package=System.Net.Http&version=4.3.3
+#addin "nuget:https://api.nuget.org/v3/index.json?package=Cake.Json&version=3.0.1"
+#addin "nuget:https://api.nuget.org/v3/index.json?package=Cake.Docker&version=0.9.3"
+#addin "nuget:https://api.nuget.org/v3/index.json?package=Cake.Http&version=0.5.0"
+#addin "nuget:https://api.nuget.org/v3/index.json?package=Newtonsoft.Json&version=11.0.2"
+#addin "nuget:https://api.nuget.org/v3/index.json?package=System.Net.Http&version=4.3.3"
 
 using Cake.Json;
 using Cake.Docker;
