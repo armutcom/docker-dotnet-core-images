@@ -62,7 +62,6 @@ fi
 
 # Add dependencies
 dotnet add $TOOLS_DIR/tools.csproj package Cake.CoreCLR -v $CAKE_VERSION --package-directory $TOOLS_DIR/Cake.CoreCLR.$CAKE_VERSION
-dotnet add $TOOLS_DIR/tools.csproj package Cake.Bakery -v $CAKE_BAKERY_VERSION --package-directory $TOOLS_DIR/Cake.Bakery
 
 docker rm -f $(docker ps -a -q)
 
