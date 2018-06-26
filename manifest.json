@@ -54,6 +54,57 @@
                         "bionic-latest",
                         "latest"
                     ]
+                },
+                {
+                    "id": 5,
+                    "name": "runtime-deps",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/dotnet-core/runtime-deps/",
+                    "tags": [
+                        "2.1.1-deps-xenial",
+                        "2.1-deps-xenial"
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "runtime-deps",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/dotnet-core/runtime-deps/",
+                    "tags": [
+                        "2.1.1-deps-bionic",
+                        "2.1-deps-bionic",
+                        "2.1-deps",
+                        "deps"
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/dotnet-core/runtime/",
+                    "tags": [
+                        "2.1.1-xenial",
+                        "2.1-xenial",
+                        "xenial-latest"
+                    ]
+                },
+                {
+                    "id": 8,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/dotnet-core/runtime/",
+                    "latest": true,
+                    "tags": [
+                        "2.1.1-bionic",
+                        "2.1-bionic",
+                        "2.1",
+                        "bionic-latest",
+                        "latest"
+                    ]
                 }
             ]
         },
@@ -84,6 +135,32 @@
                         "2.1.200-bionic",
                         "2.0-bionic",
                         "2.0",
+                        "latest"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "core-sdk",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/dotnet-core/sdk/",
+                    "tags": [
+                        "2.1.301-runtime-2.1.1-xenial",
+                        "2.1.301-xenial",
+                        "2.1-xenial"
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "core-sdk",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/dotnet-core/sdk/",
+                    "tags": [
+                        "2.1.301-runtime-2.1.1-bionic",
+                        "2.1.301-bionic",
+                        "2.1-bionic",
+                        "2.1",
                         "latest"
                     ]
                 }
@@ -172,6 +249,90 @@
                         "2.0.8-sdk-2.1.200-node-8.11.2-build-bionic",
                         "2.0-build-bionic",
                         "2.0-build",
+                        "build-bionic-latest",
+                        "build-latest",
+                        "build"
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/aspnet-core/runtime/",
+                    "tags": [
+                        "2.1.1-xenial",
+                        "2.1-xenial",
+                        "xenial-latest"
+                    ]
+                },
+                {
+                    "id": 8,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/aspnet-core/runtime/",
+                    "tags": [
+                        "2.1.1-bionic",
+                        "2.1-bionic",
+                        "2.1",
+                        "bionic-latest",
+                        "latest"
+                    ]
+                },
+                {
+                    "id": 9,
+                    "name": "runtime-spa",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/aspnet-core/runtime-spa/",
+                    "tags": [
+                        "2.1.1-spa-node-8.11.2-xenial",
+                        "2.1-spa-xenial",
+                        "spa-xenial-latest",
+                        "spa-xenial"
+                    ]
+                },
+                {
+                    "id": 10,
+                    "name": "runtime-spa",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/aspnet-core/runtime-spa/",
+                    "tags": [
+                        "2.1.1-spa-node-8.11.2-bionic",
+                        "spa-bionic-latest",
+                        "2.1-spa-bionic",
+                        "2.1-spa",
+                        "spa-bionic",
+                        "spa-latest",
+                        "spa"
+                    ]
+                },
+                {
+                    "id": 11,
+                    "name": "build",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/aspnet-core/build/",
+                    "tags": [
+                        "2.1.1-sdk-2.1.301-build-xenial",
+                        "2.1.1-sdk-2.1.301-node-8.11.2-build-xenial",
+                        "2.1-build-xenial",
+                        "build-xenial-latest"
+                    ]
+                },
+                {
+                    "id": 12,
+                    "name": "build",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-18.04/aspnet-core/build/",
+                    "tags": [
+                        "2.1.1-sdk-2.1.301-build-bionic",
+                        "2.1.1-sdk-2.1.301-node-8.11.2-build-bionic",
+                        "2.1-build-bionic",
+                        "2.1-build",
                         "build-bionic-latest",
                         "build-latest",
                         "build"
