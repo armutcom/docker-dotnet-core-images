@@ -407,6 +407,90 @@
             "httpCalls" : [
                 "/"
             ]
+        },
+        {
+            "id": 7,
+            "name": "core-runtime-2.1.1-tests-xenial",
+            "testAppPath": "tests/2.1/TestConsoleApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/dotnet-core-runtime:2.1.1-xenial",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-xenial",
+                "project_path=./TestConsoleApp",
+                "run_target=TestConsoleApp.dll"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "core-runtime-2.1.1-tests-bionic",
+            "testAppPath": "tests/2.1/TestConsoleApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/dotnet-core-runtime:2.1.1-bionic",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-bionic",
+                "project_path=./TestConsoleApp",
+                "run_target=TestConsoleApp.dll"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "aspnet-runtime-2.1.1-tests-xenial",
+            "testAppPath": "tests/2.1/TestWebApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-xenial",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-xenial",
+                "project_path=./TestWebApp",
+                "run_target=TestWebApp.dll"
+            ],
+            "port" : 22349,
+            "httpCalls" : [
+                "/",
+                "/api/"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "aspnet-runtime-2.1.1-tests-bionic",
+            "testAppPath": "tests/2.1/TestWebApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-bionic",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-bionic",
+                "project_path=./TestWebApp",
+                "run_target=TestWebApp.dll"
+            ],
+            "port" : 22350,
+            "httpCalls" : [
+                "/",
+                "/api/"
+            ]
+        },
+        {
+            "id": 11,
+            "name": "aspnet-runtime-spa-2.1.1-tests-xenial",
+            "testAppPath": "tests/2.1/TestAngularServerSideRendering/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-spa-node-8.11.2-xenial",
+                "base_image_build=armutcom/aspnet-core:2.1.1-sdk-2.1.301-build-xenial",
+                "project_path=.",
+                "run_target=TestAngularServerSideRendering.dll"
+            ],
+            "port" : 22351,
+            "httpCalls" : [
+                "/"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "aspnet-runtime-spa-2.1.1-tests-bionic",
+            "testAppPath": "tests/2.1/TestAngularServerSideRendering/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-spa-node-8.11.2-bionic",
+                "base_image_build=armutcom/aspnet-core:2.1.1-sdk-2.1.301-build-bionic",
+                "project_path=.",
+                "run_target=TestAngularServerSideRendering.dll"
+            ],
+            "port" : 22352,
+            "httpCalls" : [
+                "/"
+            ]
         }
     ]
 }
