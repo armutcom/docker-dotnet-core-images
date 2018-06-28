@@ -24,8 +24,7 @@
                     "tags": [
                         "2.0.7-deps-bionic",
                         "2.0-deps-bionic",
-                        "2.0-deps",
-                        "deps"
+                        "2.0-deps"
                     ]
                 },
                 {
@@ -36,8 +35,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/dotnet-core/runtime/",
                     "tags": [
                         "2.0.7-xenial",
-                        "2.0-xenial",
-                        "xenial-latest"
+                        "2.0-xenial"
                     ]
                 },
                 {
@@ -50,9 +48,7 @@
                     "tags": [
                         "2.0.7-bionic",
                         "2.0-bionic",
-                        "2.0",
-                        "bionic-latest",
-                        "latest"
+                        "2.0"
                     ]
                 },
                 {
@@ -134,8 +130,7 @@
                         "2.1.200-runtime-2.0.7-bionic",
                         "2.1.200-bionic",
                         "2.0-bionic",
-                        "2.0",
-                        "latest"
+                        "2.0"
                     ]
                 },
                 {
@@ -178,8 +173,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/aspnet-core/runtime/",
                     "tags": [
                         "2.0.8-xenial",
-                        "2.0-xenial",
-                        "xenial-latest"
+                        "2.0-xenial"
                     ]
                 },
                 {
@@ -191,9 +185,7 @@
                     "tags": [
                         "2.0.8-bionic",
                         "2.0-bionic",
-                        "2.0",
-                        "bionic-latest",
-                        "latest"
+                        "2.0"
                     ]
                 },
                 {
@@ -204,9 +196,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/aspnet-core/runtime-spa/",
                     "tags": [
                         "2.0.8-spa-node-8.11.2-xenial",
-                        "2.0-spa-xenial",
-                        "spa-xenial-latest",
-                        "spa-xenial"
+                        "2.0-spa-xenial"
                     ]
                 },
                 {
@@ -217,12 +207,8 @@
                     "dockerfile": "2.0/ubuntu-18.04/aspnet-core/runtime-spa/",
                     "tags": [
                         "2.0.8-spa-node-8.11.2-bionic",
-                        "spa-bionic-latest",
                         "2.0-spa-bionic",
-                        "2.0-spa",
-                        "spa-bionic",
-                        "spa-latest",
-                        "spa"
+                        "2.0-spa"
                     ]
                 },
                 {
@@ -234,8 +220,7 @@
                     "tags": [
                         "2.0.8-sdk-2.1.200-build-xenial",
                         "2.0.8-sdk-2.1.200-node-8.11.2-build-xenial",
-                        "2.0-build-xenial",
-                        "build-xenial-latest"
+                        "2.0-build-xenial"
                     ]
                 },
                 {
@@ -248,10 +233,7 @@
                         "2.0.8-sdk-2.1.200-build-bionic",
                         "2.0.8-sdk-2.1.200-node-8.11.2-build-bionic",
                         "2.0-build-bionic",
-                        "2.0-build",
-                        "build-bionic-latest",
-                        "build-latest",
-                        "build"
+                        "2.0-build"
                     ]
                 },
                 {
