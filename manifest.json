@@ -9,10 +9,12 @@
                     "name": "runtime-deps",
                     "osType": "linux",
                     "os": "xenial",
-                    "dockerfile": "2.0/ubuntu-16.04/dotnet-core/runtime-deps/",
+                    "dockerfile": "runtime-deps/ubuntu-16.04/",
                     "tags": [
                         "2.0.7-deps-xenial",
-                        "2.0-deps-xenial"
+                        "2.0-deps-xenial",
+                        "2.1.1-deps-xenial",
+                        "2.1-deps-xenial"
                     ]
                 },
                 {
@@ -20,11 +22,14 @@
                     "name": "runtime-deps",
                     "osType": "linux",
                     "os": "bionic",
-                    "dockerfile": "2.0/ubuntu-18.04/dotnet-core/runtime-deps/",
+                    "dockerfile": "runtime-deps/ubuntu-18.04/",
                     "tags": [
                         "2.0.7-deps-bionic",
                         "2.0-deps-bionic",
                         "2.0-deps",
+                        "2.1.1-deps-bionic",
+                        "2.1-deps-bionic",
+                        "2.1-deps",
                         "deps"
                     ]
                 },
@@ -36,8 +41,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/dotnet-core/runtime/",
                     "tags": [
                         "2.0.7-xenial",
-                        "2.0-xenial",
-                        "xenial-latest"
+                        "2.0-xenial"
                     ]
                 },
                 {
@@ -50,7 +54,32 @@
                     "tags": [
                         "2.0.7-bionic",
                         "2.0-bionic",
-                        "2.0",
+                        "2.0"
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/dotnet-core/runtime/",
+                    "tags": [
+                        "2.1.1-xenial",
+                        "2.1-xenial",
+                        "xenial-latest"
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/dotnet-core/runtime/",
+                    "latest": true,
+                    "tags": [
+                        "2.1.1-bionic",
+                        "2.1-bionic",
+                        "2.1",
                         "bionic-latest",
                         "latest"
                     ]
@@ -83,7 +112,32 @@
                         "2.1.200-runtime-2.0.7-bionic",
                         "2.1.200-bionic",
                         "2.0-bionic",
-                        "2.0",
+                        "2.0"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "core-sdk",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/dotnet-core/sdk/",
+                    "tags": [
+                        "2.1.301-runtime-2.1.1-xenial",
+                        "2.1.301-xenial",
+                        "2.1-xenial"
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "core-sdk",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/dotnet-core/sdk/",
+                    "tags": [
+                        "2.1.301-runtime-2.1.1-bionic",
+                        "2.1.301-bionic",
+                        "2.1-bionic",
+                        "2.1",
                         "latest"
                     ]
                 }
@@ -101,8 +155,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/aspnet-core/runtime/",
                     "tags": [
                         "2.0.8-xenial",
-                        "2.0-xenial",
-                        "xenial-latest"
+                        "2.0-xenial"
                     ]
                 },
                 {
@@ -114,9 +167,7 @@
                     "tags": [
                         "2.0.8-bionic",
                         "2.0-bionic",
-                        "2.0",
-                        "bionic-latest",
-                        "latest"
+                        "2.0"
                     ]
                 },
                 {
@@ -127,9 +178,7 @@
                     "dockerfile": "2.0/ubuntu-16.04/aspnet-core/runtime-spa/",
                     "tags": [
                         "2.0.8-spa-node-8.11.2-xenial",
-                        "2.0-spa-xenial",
-                        "spa-xenial-latest",
-                        "spa-xenial"
+                        "2.0-spa-xenial"
                     ]
                 },
                 {
@@ -140,12 +189,8 @@
                     "dockerfile": "2.0/ubuntu-18.04/aspnet-core/runtime-spa/",
                     "tags": [
                         "2.0.8-spa-node-8.11.2-bionic",
-                        "spa-bionic-latest",
                         "2.0-spa-bionic",
-                        "2.0-spa",
-                        "spa-bionic",
-                        "spa-latest",
-                        "spa"
+                        "2.0-spa"
                     ]
                 },
                 {
@@ -157,8 +202,7 @@
                     "tags": [
                         "2.0.8-sdk-2.1.200-build-xenial",
                         "2.0.8-sdk-2.1.200-node-8.11.2-build-xenial",
-                        "2.0-build-xenial",
-                        "build-xenial-latest"
+                        "2.0-build-xenial"
                     ]
                 },
                 {
@@ -171,7 +215,88 @@
                         "2.0.8-sdk-2.1.200-build-bionic",
                         "2.0.8-sdk-2.1.200-node-8.11.2-build-bionic",
                         "2.0-build-bionic",
-                        "2.0-build",
+                        "2.0-build"
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/aspnet-core/runtime/",
+                    "tags": [
+                        "2.1.1-xenial",
+                        "2.1-xenial",
+                        "xenial-latest"
+                    ]
+                },
+                {
+                    "id": 8,
+                    "name": "runtime",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/aspnet-core/runtime/",
+                    "tags": [
+                        "2.1.1-bionic",
+                        "2.1-bionic",
+                        "2.1",
+                        "bionic-latest",
+                        "latest"
+                    ]
+                },
+                {
+                    "id": 9,
+                    "name": "runtime-spa",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/aspnet-core/runtime-spa/",
+                    "tags": [
+                        "2.1.1-spa-node-8.11.2-xenial",
+                        "2.1-spa-xenial",
+                        "spa-xenial-latest",
+                        "spa-xenial"
+                    ]
+                },
+                {
+                    "id": 10,
+                    "name": "runtime-spa",
+                    "osType": "linux",
+                    "os": "bionic",
+                    "dockerfile": "2.1/ubuntu-18.04/aspnet-core/runtime-spa/",
+                    "tags": [
+                        "2.1.1-spa-node-8.11.2-bionic",
+                        "spa-bionic-latest",
+                        "2.1-spa-bionic",
+                        "2.1-spa",
+                        "spa-bionic",
+                        "spa-latest",
+                        "spa"
+                    ]
+                },
+                {
+                    "id": 11,
+                    "name": "build",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-16.04/aspnet-core/build/",
+                    "tags": [
+                        "2.1.1-sdk-2.1.301-build-xenial",
+                        "2.1.1-sdk-2.1.301-node-8.11.2-build-xenial",
+                        "2.1-build-xenial",
+                        "build-xenial-latest"
+                    ]
+                },
+                {
+                    "id": 12,
+                    "name": "build",
+                    "osType": "linux",
+                    "os": "xenial",
+                    "dockerfile": "2.1/ubuntu-18.04/aspnet-core/build/",
+                    "tags": [
+                        "2.1.1-sdk-2.1.301-build-bionic",
+                        "2.1.1-sdk-2.1.301-node-8.11.2-build-bionic",
+                        "2.1-build-bionic",
+                        "2.1-build",
                         "build-bionic-latest",
                         "build-latest",
                         "build"
@@ -261,6 +386,90 @@
                 "run_target=TestAngularServerSideRendering.dll"
             ],
             "port" : 22348,
+            "httpCalls" : [
+                "/"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "core-runtime-2.1.1-tests-xenial",
+            "testAppPath": "tests/2.1/TestConsoleApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/dotnet-core-runtime:2.1.1-xenial",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-xenial",
+                "project_path=./TestConsoleApp",
+                "run_target=TestConsoleApp.dll"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "core-runtime-2.1.1-tests-bionic",
+            "testAppPath": "tests/2.1/TestConsoleApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/dotnet-core-runtime:2.1.1-bionic",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-bionic",
+                "project_path=./TestConsoleApp",
+                "run_target=TestConsoleApp.dll"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "aspnet-runtime-2.1.1-tests-xenial",
+            "testAppPath": "tests/2.1/TestWebApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-xenial",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-xenial",
+                "project_path=./TestWebApp",
+                "run_target=TestWebApp.dll"
+            ],
+            "port" : 22349,
+            "httpCalls" : [
+                "/",
+                "/api/"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "aspnet-runtime-2.1.1-tests-bionic",
+            "testAppPath": "tests/2.1/TestWebApp/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-bionic",
+                "base_image_build=armutcom/dotnet-core-sdk:2.1.301-runtime-2.1.1-bionic",
+                "project_path=./TestWebApp",
+                "run_target=TestWebApp.dll"
+            ],
+            "port" : 22350,
+            "httpCalls" : [
+                "/",
+                "/api/"
+            ]
+        },
+        {
+            "id": 11,
+            "name": "aspnet-runtime-spa-2.1.1-tests-xenial",
+            "testAppPath": "tests/2.1/TestAngularServerSideRendering/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-spa-node-8.11.2-xenial",
+                "base_image_build=armutcom/aspnet-core:2.1.1-sdk-2.1.301-build-xenial",
+                "project_path=.",
+                "run_target=TestAngularServerSideRendering.dll"
+            ],
+            "port" : 22351,
+            "httpCalls" : [
+                "/"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "aspnet-runtime-spa-2.1.1-tests-bionic",
+            "testAppPath": "tests/2.1/TestAngularServerSideRendering/",
+            "buildArgs": [
+                "base_image_runtime=armutcom/aspnet-core:2.1.1-spa-node-8.11.2-bionic",
+                "base_image_build=armutcom/aspnet-core:2.1.1-sdk-2.1.301-build-bionic",
+                "project_path=.",
+                "run_target=TestAngularServerSideRendering.dll"
+            ],
+            "port" : 22352,
             "httpCalls" : [
                 "/"
             ]

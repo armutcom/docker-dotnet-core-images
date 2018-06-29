@@ -1,2 +1,4 @@
 tests/2.0/TestWebApp/TestWebApp/wwwroot/lib/* linguist-vendored
 tests/2.0/TestAngularServerSideRendering/ClientApp/node_modules/* linguist-vendored
+tests/2.1/TestWebApp/TestWebApp/wwwroot/lib/* linguist-vendored
+tests/2.1/TestAngularServerSideRendering/ClientApp/node_modules/* linguist-vendored

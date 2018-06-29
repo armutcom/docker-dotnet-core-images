@@ -41,7 +41,7 @@ fi
 # Make sure that tools.csproj exist.
 if [ ! -f "$TOOLS_DIR/tools.csproj" ]; then
     echo "Creating tools.csproj..."
-    echo "<Project Sdk=\"Microsoft.NET.Sdk\"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>netcoreapp2.0</TargetFramework></PropertyGroup></Project>" > $TOOLS_DIR/tools.csproj
+    echo "<Project Sdk=\"Microsoft.NET.Sdk\"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>netcoreapp2.1</TargetFramework></PropertyGroup></Project>" > $TOOLS_DIR/tools.csproj
     if [ $? -ne 0 ]; then
         echo "An error occurred while creating tools.csproj."
         exit 1
