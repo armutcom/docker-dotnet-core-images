@@ -51,14 +51,13 @@ Task("Default")
 Task("Build-Containers")
   .Does(() =>
 {
-  Information("Hello World!");  
   IList<string> tags = new List<string>();
 
   foreach(Repo repo in manifest.repos)
   {
     foreach(Image img in repo.images)
     {
-      Information("Building " + repo.name + img.tags[0]);
+      Information("Building " + repo.name+ ":" + img.tags[0]);
 
       DockerImageBuildSettings settings = new DockerImageBuildSettings();
       settings.File = img.dockerfile + "Dockerfile";
@@ -72,7 +71,7 @@ Task("Build-Containers")
 
       DockerBuild(settings, img.dockerfile);
 
-      Information("Build complete " + repo.name + img.tags[0]);
+      Information("Build complete " + repo.name+ ":" + img.tags[0]);
     }
   }
 });
