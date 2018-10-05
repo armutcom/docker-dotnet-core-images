@@ -1,4 +1,4 @@
-FROM armutcom/aspnet-core:2.1.3-xenial
+FROM armutcom/aspnet-core:2.1.5-xenial
 
 # set up node
 ENV NODE_VERSION 8.11.2

@@ -1,8 +1,8 @@
-FROM armutcom/dotnet-core-sdk:2.1.401-runtime-2.1.3-xenial
+FROM armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-xenial
 
 # set up environment
 ENV ASPNETCORE_URLS http://+:80
-ENV ASPNETCORE_PKG_VERSION 2.1.3
+ENV ASPNETCORE_PKG_VERSION 2.1.5
 
 # set up node
 ENV NODE_VERSION 8.11.2

@@ -116,7 +116,7 @@
                     "os": "xenial",
                     "dockerfile": "2.1.5/ubuntu-16.04/dotnet-core/sdk/",
                     "tags": [
-                        "2.1.403-runtime-2.1.3-xenial",
+                        "2.1.403-runtime-2.1.5-xenial",
                         "2.1.403-xenial",
                         "2.1-xenial"
                     ]
@@ -128,7 +128,7 @@
                     "os": "bionic",
                     "dockerfile": "2.1.5/ubuntu-18.04/dotnet-core/sdk/",
                     "tags": [
-                        "2.1.403-runtime-2.1.3-bionic",
+                        "2.1.403-runtime-2.1.5-bionic",
                         "2.1.403-bionic",
                         "2.1-bionic",
                         "2.1",
