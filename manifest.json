@@ -346,36 +346,6 @@
             ]
         },
         {
-            "id": 5,
-            "name": "aspnet-runtime-spa-2.1.3-tests-xenial",
-            "testAppPath": "tests/2.1.3/TestAngularServerSideRendering/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/aspnet-core:2.1.3-spa-node-8.11.2-xenial",
-                "base_image_build=armutcom/aspnet-core:2.1.3-sdk-2.1.401-build-xenial",
-                "project_path=.",
-                "run_target=TestAngularServerSideRendering.dll"
-            ],
-            "port": 22355,
-            "httpCalls": [
-                "/"
-            ]
-        },
-        {
-            "id": 6,
-            "name": "aspnet-runtime-spa-2.1.3-tests-bionic",
-            "testAppPath": "tests/2.1.3/TestAngularServerSideRendering/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/aspnet-core:2.1.3-spa-node-8.11.2-bionic",
-                "base_image_build=armutcom/aspnet-core:2.1.3-sdk-2.1.401-build-bionic",
-                "project_path=.",
-                "run_target=TestAngularServerSideRendering.dll"
-            ],
-            "port": 22356,
-            "httpCalls": [
-                "/"
-            ]
-        },
-        {
             "id": 7,
             "name": "core-runtime-2.1.5-tests-xenial",
             "testAppPath": "tests/2.1.5/TestConsoleApp/",
@@ -427,36 +397,6 @@
             "httpCalls": [
                 "/",
                 "/api/"
-            ]
-        },
-        {
-            "id": 11,
-            "name": "aspnet-runtime-spa-2.1.5-tests-xenial",
-            "testAppPath": "tests/2.1.5/TestAngularServerSideRendering/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/aspnet-core:2.1.5-spa-node-8.11.2-xenial",
-                "base_image_build=armutcom/aspnet-core:2.1.5-sdk-2.1.403-build-xenial",
-                "project_path=.",
-                "run_target=TestAngularServerSideRendering.dll"
-            ],
-            "port": 22359,
-            "httpCalls": [
-                "/"
-            ]
-        },
-        {
-            "id": 12,
-            "name": "aspnet-runtime-spa-2.1.5-tests-bionic",
-            "testAppPath": "tests/2.1.5/TestAngularServerSideRendering/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/aspnet-core:2.1.5-spa-node-8.11.2-bionic",
-                "base_image_build=armutcom/aspnet-core:2.1.5-sdk-2.1.403-build-bionic",
-                "project_path=.",
-                "run_target=TestAngularServerSideRendering.dll"
-            ],
-            "port": 22360,
-            "httpCalls": [
-                "/"
             ]
         }
     ]
