@@ -6,7 +6,7 @@
 # Feel free to change this file to fit your needs.
 ##########################################################################
 
-CAKE_VERSION=0.27.2
+CAKE_VERSION=0.30.0
 CAKE_BAKERY_VERSION=0.3.0
 
 # Define directories.
