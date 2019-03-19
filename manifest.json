@@ -1,231 +1,54 @@
 {
-    "repos": [
+    "runtimeDeps":[
         {
-            "name": "armutcom/dotnet-core-runtime",
-            "readmePath": "README.md",
-            "images": [
-                {
-                    "name": "runtime-deps",
-                    "dockerfile": "runtime-deps/ubuntu-16.04/",
-                    "tags": [
-                        "2.0.7-deps-xenial",
-                        "2.0-deps-xenial",
-                        "2.1.1-deps-xenial",
-                        "2.1.3-deps-xenial",
-                        "2.1.5-deps-xenial",
-                        "2.1-deps-xenial"
-                    ]
-                },
-                {
-                    "name": "runtime-deps",
-                    "dockerfile": "runtime-deps/ubuntu-18.04/",
-                    "tags": [
-                        "2.0.7-deps-bionic",
-                        "2.0-deps-bionic",
-                        "2.0-deps",
-                        "2.1.1-deps-bionic",
-                        "2.1.3-deps-bionic",
-                        "2.1.5-deps-bionic",
-                        "2.1-deps-bionic",
-                        "2.1-deps",
-                        "deps"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.3/ubuntu-16.04/dotnet-core/runtime/",
-                    "tags": [
-                        "2.1.3-xenial"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.3/ubuntu-18.04/dotnet-core/runtime/",
-                    "latest": true,
-                    "tags": [
-                        "2.1.3-bionic",
-                        "2.1.3"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.5/ubuntu-16.04/dotnet-core/runtime/",
-                    "tags": [
-                        "2.1.5-xenial",
-                        "xenial-latest"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.5/ubuntu-18.04/dotnet-core/runtime/",
-                    "latest": true,
-                    "tags": [
-                        "2.1.5-bionic",
-                        "2.1.5",
-                        "2.1",
-                        "bionic-latest",
-                        "latest"
-                    ]
-                }
+            "name": "runtime-deps",
+            "dockerfile": "runtime-deps/ubuntu-16.04/",
+            "tags": [
+                "2.0.7-deps-xenial",
+                "2.0-deps-xenial",
+                "2.1.1-deps-xenial",
+                "2.1.3-deps-xenial",
+                "2.1.5-deps-xenial",
+                "2.1-deps-xenial"
             ]
         },
         {
-            "name": "armutcom/dotnet-core-sdk",
-            "readmePath": "README.md",
-            "images": [
-                {
-                    "name": "core-sdk",
-                    "dockerfile": "2.1.3/ubuntu-16.04/dotnet-core/sdk/",
-                    "tags": [
-                        "2.1.401-runtime-2.1.3-xenial",
-                        "2.1.401-xenial"
-                    ]
-                },
-                {
-                    "name": "core-sdk",
-                    "dockerfile": "2.1.3/ubuntu-18.04/dotnet-core/sdk/",
-                    "tags": [
-                        "2.1.401-runtime-2.1.3-bionic",
-                        "2.1.401-bionic"
-                    ]
-                },
-                {
-                    "name": "core-sdk",
-                    "dockerfile": "2.1.5/ubuntu-16.04/dotnet-core/sdk/",
-                    "tags": [
-                        "2.1.403-runtime-2.1.5-xenial",
-                        "2.1.403-xenial",
-                        "2.1-xenial"
-                    ]
-                },
-                {
-                    "name": "core-sdk",
-                    "dockerfile": "2.1.5/ubuntu-18.04/dotnet-core/sdk/",
-                    "tags": [
-                        "2.1.403-runtime-2.1.5-bionic",
-                        "2.1.403-bionic",
-                        "2.1-bionic",
-                        "2.1",
-                        "latest"
-                    ]
-                }
+            "name": "runtime-deps",
+            "dockerfile": "runtime-deps/ubuntu-18.04/",
+            "tags": [
+                "2.0.7-deps-bionic",
+                "2.0-deps-bionic",
+                "2.0-deps",
+                "2.1.1-deps-bionic",
+                "2.1.3-deps-bionic",
+                "2.1.5-deps-bionic",
+                "2.1-deps-bionic",
+                "2.1-deps",
+                "deps"
             ]
-        },
+        }
+    ],
+    "images":[
         {
-            "name": "armutcom/aspnet-core",
-            "readmePath": "README.md",
-            "images": [
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.3/ubuntu-16.04/aspnet-core/runtime/",
-                    "tags": [
-                        "2.1.3-xenial"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.3/ubuntu-18.04/aspnet-core/runtime/",
-                    "tags": [
-                        "2.1.3-bionic"
-                    ]
-                },
-                {
-                    "name": "runtime-spa",
-                    "dockerfile": "2.1.3/ubuntu-16.04/aspnet-core/runtime-spa/",
-                    "tags": [
-                        "2.1.3-spa-node-8.11.2-xenial"
-                    ]
-                },
-                {
-                    "name": "runtime-spa",
-                    "dockerfile": "2.1.3/ubuntu-18.04/aspnet-core/runtime-spa/",
-                    "tags": [
-                        "2.1.3-spa-node-8.11.2-bionic"
-                    ]
-                },
-                {
-                    "name": "build",
-                    "dockerfile": "2.1.3/ubuntu-16.04/aspnet-core/build/",
-                    "tags": [
-                        "2.1.3-sdk-2.1.401-build-xenial",
-                        "2.1.3-sdk-2.1.401-node-8.11.2-build-xenial"
-                    ]
-                },
-                {
-                    "name": "build",
-                    "dockerfile": "2.1.3/ubuntu-18.04/aspnet-core/build/",
-                    "tags": [
-                        "2.1.3-sdk-2.1.401-build-bionic",
-                        "2.1.3-sdk-2.1.401-node-8.11.2-build-bionic"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.5/ubuntu-16.04/aspnet-core/runtime/",
-                    "tags": [
-                        "2.1.5-xenial",
-                        "2.1-xenial",
-                        "xenial-latest"
-                    ]
-                },
-                {
-                    "name": "runtime",
-                    "dockerfile": "2.1.5/ubuntu-18.04/aspnet-core/runtime/",
-                    "tags": [
-                        "2.1.5-bionic",
-                        "2.1-bionic",
-                        "2.1",
-                        "bionic-latest",
-                        "latest"
-                    ]
-                },
-                {
-                    "name": "runtime-spa",
-                    "dockerfile": "2.1.5/ubuntu-16.04/aspnet-core/runtime-spa/",
-                    "tags": [
-                        "2.1.5-spa-node-8.11.2-xenial",
-                        "2.1-spa-xenial",
-                        "spa-xenial-latest",
-                        "spa-xenial"
-                    ]
-                },
-                {
-                    "name": "runtime-spa",
-                    "dockerfile": "2.1.5/ubuntu-18.04/aspnet-core/runtime-spa/",
-                    "tags": [
-                        "2.1.5-spa-node-8.11.2-bionic",
-                        "spa-bionic-latest",
-                        "2.1-spa-bionic",
-                        "2.1-spa",
-                        "spa-bionic",
-                        "spa-latest",
-                        "spa"
-                    ]
-                },
-                {
-                    "name": "build",
-                    "dockerfile": "2.1.5/ubuntu-16.04/aspnet-core/build/",
-                    "tags": [
-                        "2.1.5-sdk-2.1.403-build-xenial",
-                        "2.1.5-sdk-2.1.403-node-8.11.2-build-xenial",
-                        "2.1-build-xenial",
-                        "build-xenial-latest"
-                    ]
-                },
-                {
-                    "name": "build",
-                    "dockerfile": "2.1.5/ubuntu-18.04/aspnet-core/build/",
-                    "tags": [
-                        "2.1.5-sdk-2.1.403-build-bionic",
-                        "2.1.5-sdk-2.1.403-node-8.11.2-build-bionic",
-                        "2.1-build-bionic",
-                        "2.1-build",
-                        "build-bionic-latest",
-                        "build-latest",
-                        "build"
-                    ]
-                }
-            ]
+            "name" : "2.1.3-xenial",
+            "sdkConfiguration":{
+                "dockerfile":"images/dotnet-core/sdk/",
+                "imageName":"ubuntu:16.04",
+                "version":"2.1.401",
+                "sha512":"639f9f68f225246d9cce798d72d011f65c7eda0d775914d1394df050bddf93e2886555f5eed85a75d6c72e9063a54d8aa053c64c326c683b94e9e0a0570e5654",
+                "tags":["2.1.401-runtime-2.1.3-xenial",
+                    "2.1.401-xenial"]
+            },
+            "runtimeConfiguration":{
+                "dockerfile":"images/dotnet-core/runtime/",
+                "imageName":"armutcom/dotnet-core-runtime:2.1.3-deps-xenial",
+                "version":"2.1.3",
+                "sha512":"e2a9a25436744498ee827125083e41151e90e914091863d396ff8d3916467e8ebef4cdfe5c97a13381e6d257d1e01b7a02f846b9c8406643848e3d433d6bd60a",
+                "tags":["2.1.3-xenial"]
+            },
+            "aspNetCoreConfiguration":{
+
+            }
         }
     ],
     "tests": [

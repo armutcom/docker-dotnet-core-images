@@ -9,35 +9,44 @@ using Cake.Docker;
 using Newtonsoft.Json;
 using System.Net.Http;
 
-public class Configuration
+public abstract class BaseConfiguration
 {
+    public string DockerFile { get; set; }
+
     public string ImageName { get; set; }
 
-    public string DotnetVersion { get; set; }
+    public string Version { get; set; }
 
+    public string[] Tags { get; set; }
+}
+
+public class Configuration : BaseConfiguration
+{
     public string Sha512 { get; set; }
 }
 
-public class AspNetCoreConfiguration
+public class AspNetCoreConfiguration : BaseConfiguration
 {
-    public string ImageName { get; set; }
-
-    public string AppVersion { get; set; }
-
-    public string DotnetCoreVersion { get; set; }
+    public string TargetFramework { get; set; }
 }
+
+public class NewImage
+{
+    public string Name { get; set; }
+
+    public Configuration SdkConfiguration { get; set; }
+
+    public Configuration RuntimeConfiguration { get; set; }
+
+    public AspNetCoreConfiguration AspNetCoreConfiguration { get; set; }
+}
+
 
 public class Manifest
 {
-    public Repo[] repos { get; set; }
+    public Image[] runtimeDeps { get; set; }
+    public NewImage[] images { get; set; }
     public Test[] tests { get; set; }
-}
-
-public class Repo
-{
-    public string name { get; set; }
-    public string readmePath { get; set; }
-    public Image[] images { get; set; }
 }
 
 public class Image
@@ -62,7 +71,14 @@ var target = Argument("target", "Default");
 Task("Default")
     .IsDependentOn("Tests");
 
+Task("Build-Runtime-Deps")
+  .Does(() =>
+  {
+    
+  });
+
 Task("Build-Containers")
+  .IsDependentOn("Build-Runtime-Deps")
   .Does(() =>
 {
   IList<string> tags = new List<string>();
