@@ -9,6 +9,24 @@ using Cake.Docker;
 using Newtonsoft.Json;
 using System.Net.Http;
 
+public class Configuration
+{
+    public string ImageName { get; set; }
+
+    public string DotnetVersion { get; set; }
+
+    public string Sha512 { get; set; }
+}
+
+public class AspNetCoreConfiguration
+{
+    public string ImageName { get; set; }
+
+    public string AppVersion { get; set; }
+
+    public string DotnetCoreVersion { get; set; }
+}
+
 public class Manifest
 {
     public Repo[] repos { get; set; }
@@ -24,17 +42,13 @@ public class Repo
 
 public class Image
 {
-    public int id { get; set; }
     public string name { get; set; }
-    public string osType { get; set; }
-    public string os { get; set; }
     public string dockerfile { get; set; }
     public string[] tags { get; set; }
 }
 
 public class Test
 {
-    public int id { get; set; }
     public string name { get; set; }
     public string testAppPath { get; set; }
     public string[] buildArgs { get; set; }
