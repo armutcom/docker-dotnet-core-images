@@ -8,56 +8,42 @@ using Cake.Json;
 using Cake.Docker;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Linq;
 
-public abstract class BaseConfiguration
-{
-    public string dockerFile { get; set; }
-
-    public string imageName { get; set; }
-
-    public string version { get; set; }
-
-    public string[] tags { get; set; }
-}
-
-public class Configuration : BaseConfiguration
-{
-    public string sha512 { get; set; }
-}
-
-public class AspNetCoreConfiguration : BaseConfiguration
-{
-    public string targetFramework { get; set; }
-}
-
-public class NewImage
+public class Configuration
 {
     public string name { get; set; }
 
-    public Configuration sdkConfiguration { get; set; }
+    public string dockerFile { get; set; }
 
-    public Configuration runtimeConfiguration { get; set; }
+    public string[] buildArgs { get; set; }
 
-    public AspNetCoreConfiguration aspNetCoreBuildConfiguration { get; set; }
-
-    public AspNetCoreConfiguration aspNetCoreRuntimeConfiguration { get; set; }
-
-    public AspNetCoreConfiguration aspNetCoreRuntimeSpaConfiguration { get; set; }
-}
-
-
-public class Manifest
-{
-    public Image[] runtimeDeps { get; set; }
-    public NewImage[] images { get; set; }
-    public Test[] tests { get; set; }
+    public string[] tags { get; set; }
 }
 
 public class Image
 {
     public string name { get; set; }
-    public string dockerfile { get; set; }
-    public string[] tags { get; set; }
+
+    public Configuration runtimeDepsConfiguration { get; set; }
+
+    public Configuration sdkConfiguration { get; set; }
+
+    public Configuration runtimeConfiguration { get; set; }
+
+    public Configuration aspNetCoreBuildConfiguration { get; set; }
+
+    public Configuration aspNetCoreRuntimeConfiguration { get; set; }
+
+    public Configuration aspNetCoreRuntimeSpaConfiguration { get; set; }
+}
+
+
+public class Manifest
+{
+    public Image[] images { get; set; }
+    
+    public Test[] tests { get; set; }
 }
 
 public class Test
@@ -78,35 +64,117 @@ Task("Default")
 Task("Build-Runtime-Deps")
   .Does(() =>
   {
-    
-  });
+      var runtimeDeps = manifest.images.Select(m => m.runtimeDepsConfiguration);
+      var tags = new List<string>();
+
+      foreach (var img in runtimeDeps)
+      {
+          Information("Building " + img.name+ ":" + img.tags[0]);
+
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = img.dockerfile + "Dockerfile",
+              Tag = new string[img.tags.Length],
+              BuildArg = img.buildArgs
+          };
+
+          for (int i = 0; i < img.tags.Length; i++)
+          {
+              settings.Tag[i] = img.name + ":" + img.tags[i];
+              tags.Add(settings.Tag[i]);
+          }
+
+          DockerBuild(settings, img.dockerfile);
+
+          Information("Build complete " + repo.name+ ":" + img.tags[0]);
+      }
+});
+
+Task("Build-DotnetCore-Runtime")
+  .Does(() =>
+  {
+      var runtimeDeps = manifest.images.Select(m => m.runtimeConfiguration);
+      var tags = new List<string>();
+
+      foreach (var img in runtimeDeps)
+      {
+          Information("Building " + img.name+ ":" + img.tags[0]);
+
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = img.dockerfile + "Dockerfile",
+              Tag = new string[img.tags.Length],
+              BuildArg = img.buildArgs
+          };
+
+          for (int i = 0; i < img.tags.Length; i++)
+          {
+              settings.Tag[i] = img.name + ":" + img.tags[i];
+              tags.Add(settings.Tag[i]);
+          }
+
+          DockerBuild(settings, img.dockerfile);
+
+          Information("Build complete " + repo.name+ ":" + img.tags[0]);
+      }
+});
+
+Task("Build-DotnetCore-Sdk")
+  .Does(() =>
+  {
+      var runtimeDeps = manifest.images.Select(m => m.sdkConfiguration);
+      var tags = new List<string>();
+
+      foreach (var img in runtimeDeps)
+      {
+          Information("Building " + img.name+ ":" + img.tags[0]);
+
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = img.dockerfile + "Dockerfile",
+              Tag = new string[img.tags.Length],
+              BuildArg = img.buildArgs
+          };
+
+          for (int i = 0; i < img.tags.Length; i++)
+          {
+              settings.Tag[i] = img.name + ":" + img.tags[i];
+              tags.Add(settings.Tag[i]);
+          }
+
+          DockerBuild(settings, img.dockerfile);
+
+          Information("Build complete " + repo.name+ ":" + img.tags[0]);
+      }
+});
 
 Task("Build-Containers")
   .IsDependentOn("Build-Runtime-Deps")
+  .IsDependentOn("Build-DotnetCore-Runtime")
+  .IsDependentOn("Build-DotnetCore-Sdk")
   .Does(() =>
 {
   IList<string> tags = new List<string>();
 
-  foreach(Repo repo in manifest.repos)
+  foreach(Image img in manifest.images)
   {
-    foreach(Image img in repo.images)
+    Information("Building " + img.name+ ":" + img.tags[0]);
+
+    DockerImageBuildSettings settings = new DockerImageBuildSettings
     {
-      Information("Building " + repo.name+ ":" + img.tags[0]);
+        File = img.dockerfile + "Dockerfile",
+        Tag = new string[img.tags.Length]
+    };
 
-      DockerImageBuildSettings settings = new DockerImageBuildSettings();
-      settings.File = img.dockerfile + "Dockerfile";
-      settings.Tag = new string[img.tags.Length];
-
-      for (int i = 0; i < img.tags.Length; i++)
-      {
-          settings.Tag[i] = repo.name + ":" + img.tags[i];
-          tags.Add(settings.Tag[i]);
-      }
-
-      DockerBuild(settings, img.dockerfile);
-
-      Information("Build complete " + repo.name+ ":" + img.tags[0]);
+    for (int i = 0; i < img.tags.Length; i++)
+    {
+        settings.Tag[i] = repo.name + ":" + img.tags[i];
+        tags.Add(settings.Tag[i]);
     }
+
+    DockerBuild(settings, img.dockerfile);
+
+    Information("Build complete " + repo.name+ ":" + img.tags[0]);
   }
 });
 
