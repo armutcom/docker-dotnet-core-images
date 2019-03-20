@@ -11,34 +11,38 @@ using System.Net.Http;
 
 public abstract class BaseConfiguration
 {
-    public string DockerFile { get; set; }
+    public string dockerFile { get; set; }
 
-    public string ImageName { get; set; }
+    public string imageName { get; set; }
 
-    public string Version { get; set; }
+    public string version { get; set; }
 
-    public string[] Tags { get; set; }
+    public string[] tags { get; set; }
 }
 
 public class Configuration : BaseConfiguration
 {
-    public string Sha512 { get; set; }
+    public string sha512 { get; set; }
 }
 
 public class AspNetCoreConfiguration : BaseConfiguration
 {
-    public string TargetFramework { get; set; }
+    public string targetFramework { get; set; }
 }
 
 public class NewImage
 {
-    public string Name { get; set; }
+    public string name { get; set; }
 
-    public Configuration SdkConfiguration { get; set; }
+    public Configuration sdkConfiguration { get; set; }
 
-    public Configuration RuntimeConfiguration { get; set; }
+    public Configuration runtimeConfiguration { get; set; }
 
-    public AspNetCoreConfiguration AspNetCoreConfiguration { get; set; }
+    public AspNetCoreConfiguration aspNetCoreBuildConfiguration { get; set; }
+
+    public AspNetCoreConfiguration aspNetCoreRuntimeConfiguration { get; set; }
+
+    public AspNetCoreConfiguration aspNetCoreRuntimeSpaConfiguration { get; set; }
 }
 
 
