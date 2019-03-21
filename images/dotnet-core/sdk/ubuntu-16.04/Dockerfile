@@ -1,6 +1,4 @@
-ARG BASE_IMAGE
-
-FROM ${BASE_IMAGE}
+FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		ca-certificates \
@@ -23,10 +21,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libc6 \
-        libcurl4 \
+        libcurl3 \
         libgcc1 \
         libgssapi-krb5-2 \
-        libicu60 \
+        libicu55 \
         liblttng-ust0 \
         libssl1.0.0 \
         libstdc++6 \
