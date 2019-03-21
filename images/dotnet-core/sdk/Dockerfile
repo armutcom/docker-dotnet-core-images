@@ -1,6 +1,6 @@
-ARG IMAGE_NAME
+ARG BASE_IMAGE
 
-FROM IMAGE_NAME
+FROM ${BASE_IMAGE}
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		ca-certificates \
@@ -37,11 +37,11 @@ RUN apt-get update \
 
 # Install .NET Core SDK
 ARG DOTNET_SDK_VERSION
-ARG DOTNET_SDK_DOWNLOAD_SHA
+ARG DOTNET_SDK_SHA
 ENV DOTNET_SDK_DOWNLOAD_URL https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz
 
 RUN curl -SL $DOTNET_SDK_DOWNLOAD_URL --output dotnet.tar.gz \
-    && echo "$DOTNET_SDK_DOWNLOAD_SHA dotnet.tar.gz" | sha512sum -c - \
+    && echo "$DOTNET_SDK_SHA dotnet.tar.gz" | sha512sum -c - \
     && mkdir -p /usr/share/dotnet \
     && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
     && rm dotnet.tar.gz \

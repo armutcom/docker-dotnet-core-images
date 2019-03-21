@@ -1,5 +1,5 @@
-ARG IMAGE_NAME
-FROM IMAGE_NAME
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
