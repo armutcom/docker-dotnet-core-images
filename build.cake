@@ -8,33 +8,52 @@ using Cake.Json;
 using Cake.Docker;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Linq;
 
-public class Manifest
-{
-    public Repo[] repos { get; set; }
-    public Test[] tests { get; set; }
-}
-
-public class Repo
+public class Configuration
 {
     public string name { get; set; }
-    public string readmePath { get; set; }
-    public Image[] images { get; set; }
+
+    public string dockerfile { get; set; }
+
+    public string[] tags { get; set; }
 }
 
 public class Image
 {
-    public int id { get; set; }
     public string name { get; set; }
-    public string osType { get; set; }
-    public string os { get; set; }
-    public string dockerfile { get; set; }
-    public string[] tags { get; set; }
+
+    public string[] buildArgs { get; set; }
+
+    public Configuration runtimeDepsConfiguration { get; set; }
+
+    public Configuration sdkConfiguration { get; set; }
+
+    public Configuration runtimeConfiguration { get; set; }
+
+    public Configuration aspNetCoreBuildConfiguration { get; set; }
+
+    public Configuration aspNetCoreRuntimeConfiguration { get; set; }
+
+    public Configuration aspNetCoreRuntimeSpaConfiguration { get; set; }
+
+    public Configuration newrelicRuntimeConfiguration { get; set;}
+
+    public Configuration newrelicRuntimeTimezoneTrConfiguration { get; set;}
+
+    public Configuration dotnetRuntimeTimezoneTrConfiguration { get; set;}
+}
+
+
+public class Manifest
+{
+    public Image[] images { get; set; }
+    
+    public Test[] tests { get; set; }
 }
 
 public class Test
 {
-    public int id { get; set; }
     public string name { get; set; }
     public string testAppPath { get; set; }
     public string[] buildArgs { get; set; }
@@ -48,32 +67,244 @@ var target = Argument("target", "Default");
 Task("Default")
     .IsDependentOn("Tests");
 
+Task("Build-Runtime-Deps")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " runtime deps");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.runtimeDepsConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.runtimeDepsConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.runtimeDepsConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.runtimeDepsConfiguration.name + ":" + image.runtimeDepsConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.runtimeDepsConfiguration.dockerfile);
+
+          Information("Building " + image.name + " runtime deps completed");
+      }
+});
+
+Task("Build-DotnetCore-Runtime")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " runtime image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.runtimeConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.runtimeConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.runtimeConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.runtimeConfiguration.name + ":" + image.runtimeConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.runtimeConfiguration.dockerfile);
+
+          Information("Building " + image.name + " runtime image completed");
+      }
+});
+
+Task("Build-DotnetCore-Sdk")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " sdk image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.sdkConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.sdkConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.sdkConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.sdkConfiguration.name + ":" + image.sdkConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.sdkConfiguration.dockerfile);
+
+          Information("Building " + image.name + " sdk image completed");
+      }
+});
+
+Task("Build-AspnetCore-Runtime")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " aspnet core runtime image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.aspNetCoreRuntimeConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.aspNetCoreRuntimeConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.aspNetCoreRuntimeConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.aspNetCoreRuntimeConfiguration.name + ":" + image.aspNetCoreRuntimeConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.aspNetCoreRuntimeConfiguration.dockerfile);
+
+          Information("Building " + image.name + " aspnet core runtime image completed");
+      }
+});
+
+Task("Build-AspnetCore-Runtime-Spa")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " aspnet core runtime spa image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.aspNetCoreRuntimeSpaConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.aspNetCoreRuntimeSpaConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.aspNetCoreRuntimeSpaConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.aspNetCoreRuntimeSpaConfiguration.name + ":" + image.aspNetCoreRuntimeSpaConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.aspNetCoreRuntimeSpaConfiguration.dockerfile);
+
+          Information("Building " + image.name + " aspnet core runtime spa image completed");
+      }
+});
+
+Task("Build-AspnetCore-Build")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " aspnet core build image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.aspNetCoreBuildConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.aspNetCoreBuildConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.aspNetCoreBuildConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.aspNetCoreBuildConfiguration.name + ":" + image.aspNetCoreBuildConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.aspNetCoreBuildConfiguration.dockerfile);
+
+          Information("Building " + image.name + " aspnet core build image completed");
+      }
+});
+
+Task("Build-Newrelic-Runtime")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " newrelic runtime image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.newrelicRuntimeConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.newrelicRuntimeConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.newrelicRuntimeConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.newrelicRuntimeConfiguration.name + ":" + image.newrelicRuntimeConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.newrelicRuntimeConfiguration.dockerfile);
+
+          Information("Building " + image.name + " newrelic runtime image completed");
+      }
+});
+
+Task("Build-Newrelic-Runtime-Timezone-Tr")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " newrelic runtime timezone tr image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.newrelicRuntimeTimezoneTrConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.newrelicRuntimeTimezoneTrConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.newrelicRuntimeTimezoneTrConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.newrelicRuntimeTimezoneTrConfiguration.name + ":" + image.newrelicRuntimeTimezoneTrConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.newrelicRuntimeTimezoneTrConfiguration.dockerfile);
+
+          Information("Building " + image.name + " newrelic runtime timezone tr image completed");
+      }
+});
+
+Task("Build-Runtime-Timezone-Tr")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " newrelic runtime timezone tr image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.dotnetRuntimeTimezoneTrConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.dotnetRuntimeTimezoneTrConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.dotnetRuntimeTimezoneTrConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.dotnetRuntimeTimezoneTrConfiguration.name + ":" + image.dotnetRuntimeTimezoneTrConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.dotnetRuntimeTimezoneTrConfiguration.dockerfile);
+
+          Information("Building " + image.name + " newrelic runtime timezone tr image completed");
+      }
+});
+
 Task("Build-Containers")
+  .IsDependentOn("Build-Runtime-Deps")
+  .IsDependentOn("Build-DotnetCore-Runtime")
+  .IsDependentOn("Build-DotnetCore-Sdk")
+  .IsDependentOn("Build-AspnetCore-Runtime")
+  .IsDependentOn("Build-AspnetCore-Runtime-Spa")
+  .IsDependentOn("Build-AspnetCore-Build")
+  .IsDependentOn("Build-Newrelic-Runtime")
+  .IsDependentOn("Build-Newrelic-Runtime-Timezone-Tr")
+  .IsDependentOn("Build-Runtime-Timezone-Tr")
   .Does(() =>
 {
-  IList<string> tags = new List<string>();
-
-  foreach(Repo repo in manifest.repos)
-  {
-    foreach(Image img in repo.images)
-    {
-      Information("Building " + repo.name+ ":" + img.tags[0]);
-
-      DockerImageBuildSettings settings = new DockerImageBuildSettings();
-      settings.File = img.dockerfile + "Dockerfile";
-      settings.Tag = new string[img.tags.Length];
-
-      for (int i = 0; i < img.tags.Length; i++)
-      {
-          settings.Tag[i] = repo.name + ":" + img.tags[i];
-          tags.Add(settings.Tag[i]);
-      }
-
-      DockerBuild(settings, img.dockerfile);
-
-      Information("Build complete " + repo.name+ ":" + img.tags[0]);
-    }
-  }
+  
 });
 
 Task("Tests")
@@ -143,19 +374,13 @@ Task("Publish")
     return;
   }
 
-  IList<string> tags = new List<string>();
-
-  foreach(Repo repo in manifest.repos)
+  foreach (var image in manifest.images)
   {
-    foreach(Image img in repo.images)
-    {
-      for (int i = 0; i < img.tags.Length; i++)
+      for (int i = 0; i < image.aspNetCoreRuntimeConfiguration.tags.Length; i++)
       {
-          string pushTag = repo.name + ":" + img.tags[i];
-          
-          DockerPush(pushTag);
+          string tag = image.aspNetCoreRuntimeConfiguration.name + ":" + image.aspNetCoreRuntimeConfiguration.tags[i];
+          DockerPush(tag);
       }
-    }
   }
 });
 
