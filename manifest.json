@@ -2,7 +2,7 @@
     "images": [
         {
             "name": "2.1.5-xenial",
-            "buildArgs":[
+            "buildArgs": [
                 "DOTNET_RUNTIME_VERSION=2.1.5",
                 "DOTNET_RUNTIME_SHA=d815c79fd868d2642898ddc09c890a90c4ab26ef8999046581d7e3912bb06ec97ce6637ce8bf0ceb9deb773daab1c0cd93e336992c885a4fd7550d6686d4dbf4",
                 "DOTNET_SDK_VERSION=2.1.403",
@@ -56,7 +56,7 @@
                 ]
             },
             "aspNetCoreBuildConfiguration": {
-                "name" : "armutcom/aspnet-core",
+                "name": "armutcom/aspnet-core",
                 "dockerfile": "images/aspnet-core/build/",
                 "tags": [
                     "2.1.5-sdk-2.1.403-build-xenial",
@@ -67,139 +67,91 @@
             }
         },
         {
-        "name": "2.1.5-bionic",
-        "buildArgs":[
-            "DOTNET_RUNTIME_VERSION=2.1.5",
-            "DOTNET_RUNTIME_SHA=d815c79fd868d2642898ddc09c890a90c4ab26ef8999046581d7e3912bb06ec97ce6637ce8bf0ceb9deb773daab1c0cd93e336992c885a4fd7550d6686d4dbf4",
-            "DOTNET_SDK_VERSION=2.1.403",
-            "DOTNET_SDK_SHA=903a8a633aea9211ba36232a2decb3b34a59bb62bc145a0e7a90ca46dd37bb6c2da02bcbe2c50c17e08cdff8e48605c0f990786faf1f06be1ea4a4d373beb8a9",
-            "RUNTIME_DEPS_IMAGE=armutcom/dotnet-core-runtime:2.1.5-deps-bionic",
-            "RUNTIME_IMAGE=armutcom/dotnet-core-runtime:2.1.5-bionic",
-            "NETCOREAPP_VERSION=netcoreapp2.1",
-            "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.1.5-bionic",
-            "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic",
-            "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime:2.1.5-runtime-bionic"
-        ],
-        "runtimeDepsConfiguration": {
-            "name": "armutcom/dotnet-core-runtime",
-            "dockerfile": "images/runtime-deps/ubuntu-18.04/",
-            "tags": [
-                "2.1.5-deps-bionic",
-                "2.1-deps-bionic",
-                "2.1-deps",
-                "deps"
-            ]
-        },
-        "runtimeConfiguration": {
-            "name": "armutcom/dotnet-core-runtime",
-            "dockerfile": "images/dotnet-core/runtime/",
-            "tags": [
-                "2.1.5-bionic",
-                "2.1.5",
-                "2.1",
-                "bionic-latest",
-                "latest"
-            ]
-        },
-        "sdkConfiguration": {
-            "name": "armutcom/dotnet-core-sdk",
-            "dockerfile": "images/dotnet-core/sdk/ubuntu-18.04/",
-            "tags": [
-                "2.1.403-runtime-2.1.5-bionic",
-                "2.1.403-bionic",
-                "2.1-bionic",
-                "2.1",
-                "latest"
-            ]
-        },
-        "aspNetCoreRuntimeConfiguration": {
-            "name": "armutcom/aspnet-core",
-            "dockerfile": "images/aspnet-core/runtime/",
-            "tags": [
-                "2.1.5-bionic",
-                "2.1-bionic",
-                "2.1",
-                "bionic-latest",
-                "latest"
-            ]
-        },
-        "aspNetCoreRuntimeSpaConfiguration": {
-            "name": "armutcom/aspnet-core",
-            "dockerfile": "images/aspnet-core/runtime-spa/",
-            "tags": [
-                "2.1.5-spa-node-8.11.2-bionic",
-                "spa-bionic-latest",
-                "2.1-spa-bionic",
-                "2.1-spa",
-                "spa-bionic",
-                "spa-latest",
-                "spa"
-            ]
-        },
-        "aspNetCoreBuildConfiguration": {
-            "name" : "armutcom/aspnet-core",
-            "dockerfile": "images/aspnet-core/build/",
-            "tags": [
-                "2.1.5-sdk-2.1.403-build-bionic",
-                "2.1.5-sdk-2.1.403-node-8.11.2-build-bionic",
-                "2.1-build-bionic",
-                "2.1-build",
-                "build-bionic-latest",
-                "build-latest",
-                "build"
-            ]
+            "name": "2.1.5-bionic",
+            "buildArgs": [
+                "DOTNET_RUNTIME_VERSION=2.1.5",
+                "DOTNET_RUNTIME_SHA=d815c79fd868d2642898ddc09c890a90c4ab26ef8999046581d7e3912bb06ec97ce6637ce8bf0ceb9deb773daab1c0cd93e336992c885a4fd7550d6686d4dbf4",
+                "DOTNET_SDK_VERSION=2.1.403",
+                "DOTNET_SDK_SHA=903a8a633aea9211ba36232a2decb3b34a59bb62bc145a0e7a90ca46dd37bb6c2da02bcbe2c50c17e08cdff8e48605c0f990786faf1f06be1ea4a4d373beb8a9",
+                "RUNTIME_DEPS_IMAGE=armutcom/dotnet-core-runtime:2.1.5-deps-bionic",
+                "RUNTIME_IMAGE=armutcom/dotnet-core-runtime:2.1.5-bionic",
+                "NETCOREAPP_VERSION=netcoreapp2.1",
+                "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.1.5-bionic",
+                "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic",
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime:2.1.5-runtime-bionic"
+            ],
+            "runtimeDepsConfiguration": {
+                "name": "armutcom/dotnet-core-runtime",
+                "dockerfile": "images/runtime-deps/ubuntu-18.04/",
+                "tags": [
+                    "2.1.5-deps-bionic",
+                    "2.1-deps-bionic",
+                    "2.1-deps",
+                    "deps"
+                ]
+            },
+            "runtimeConfiguration": {
+                "name": "armutcom/dotnet-core-runtime",
+                "dockerfile": "images/dotnet-core/runtime/",
+                "tags": [
+                    "2.1.5-bionic",
+                    "2.1.5",
+                    "2.1",
+                    "bionic-latest",
+                    "latest"
+                ]
+            },
+            "sdkConfiguration": {
+                "name": "armutcom/dotnet-core-sdk",
+                "dockerfile": "images/dotnet-core/sdk/ubuntu-18.04/",
+                "tags": [
+                    "2.1.403-runtime-2.1.5-bionic",
+                    "2.1.403-bionic",
+                    "2.1-bionic",
+                    "2.1",
+                    "latest"
+                ]
+            },
+            "aspNetCoreRuntimeConfiguration": {
+                "name": "armutcom/aspnet-core",
+                "dockerfile": "images/aspnet-core/runtime/",
+                "tags": [
+                    "2.1.5-bionic",
+                    "2.1-bionic",
+                    "2.1",
+                    "bionic-latest",
+                    "latest"
+                ]
+            },
+            "aspNetCoreRuntimeSpaConfiguration": {
+                "name": "armutcom/aspnet-core",
+                "dockerfile": "images/aspnet-core/runtime-spa/",
+                "tags": [
+                    "2.1.5-spa-node-8.11.2-bionic",
+                    "spa-bionic-latest",
+                    "2.1-spa-bionic",
+                    "2.1-spa",
+                    "spa-bionic",
+                    "spa-latest",
+                    "spa"
+                ]
+            },
+            "aspNetCoreBuildConfiguration": {
+                "name": "armutcom/aspnet-core",
+                "dockerfile": "images/aspnet-core/build/",
+                "tags": [
+                    "2.1.5-sdk-2.1.403-build-bionic",
+                    "2.1.5-sdk-2.1.403-node-8.11.2-build-bionic",
+                    "2.1-build-bionic",
+                    "2.1-build",
+                    "build-bionic-latest",
+                    "build-latest",
+                    "build"
+                ]
+            }
         }
-    }],
-    "tests": [{
-            "name": "core-runtime-2.1.3-tests-xenial",
-            "testAppPath": "tests/2.1.3/TestConsoleApp/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/dotnet-core-runtime:2.1.3-xenial",
-                "base_image_build=armutcom/dotnet-core-sdk:2.1.401-runtime-2.1.3-xenial",
-                "project_path=./TestConsoleApp",
-                "run_target=TestConsoleApp.dll"
-            ]
-        },
-        {
-            "name": "core-runtime-2.1.3-tests-bionic",
-            "testAppPath": "tests/2.1.3/TestConsoleApp/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/dotnet-core-runtime:2.1.3-bionic",
-                "base_image_build=armutcom/dotnet-core-sdk:2.1.401-runtime-2.1.3-bionic",
-                "project_path=./TestConsoleApp",
-                "run_target=TestConsoleApp.dll"
-            ]
-        },
-        {
-            "name": "aspnet-runtime-2.1.3-tests-xenial",
-            "testAppPath": "tests/2.1.3/TestWebApp/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/aspnet-core:2.1.3-xenial",
-                "base_image_build=armutcom/dotnet-core-sdk:2.1.401-runtime-2.1.3-xenial",
-                "project_path=./TestWebApp",
-                "run_target=TestWebApp.dll"
-            ],
-            "port": 22353,
-            "httpCalls": [
-                "/",
-                "/api/"
-            ]
-        },
-        {
-            "name": "aspnet-runtime-2.1.3-tests-bionic",
-            "testAppPath": "tests/2.1.3/TestWebApp/",
-            "buildArgs": [
-                "base_image_runtime=armutcom/aspnet-core:2.1.3-bionic",
-                "base_image_build=armutcom/dotnet-core-sdk:2.1.401-runtime-2.1.3-bionic",
-                "project_path=./TestWebApp",
-                "run_target=TestWebApp.dll"
-            ],
-            "port": 22354,
-            "httpCalls": [
-                "/",
-                "/api/"
-            ]
-        },
+    ],
+    "tests": [
         {
             "name": "core-runtime-2.1.5-tests-xenial",
             "testAppPath": "tests/2.1.5/TestConsoleApp/",
