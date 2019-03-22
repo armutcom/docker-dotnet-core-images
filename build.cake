@@ -36,6 +36,12 @@ public class Image
     public Configuration aspNetCoreRuntimeConfiguration { get; set; }
 
     public Configuration aspNetCoreRuntimeSpaConfiguration { get; set; }
+
+    public Configuration newrelicRuntimeConfiguration { get; set;}
+
+    public Configuration newrelicRuntimeTimezoneTrConfiguration { get; set;}
+
+    public Configuration dotnetRuntimeTimezoneTrConfiguration { get; set;}
 }
 
 
@@ -211,6 +217,81 @@ Task("Build-AspnetCore-Build")
       }
 });
 
+Task("Build-Newrelic-Runtime")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " newrelic runtime image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.newrelicRuntimeConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.newrelicRuntimeConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.newrelicRuntimeConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.newrelicRuntimeConfiguration.name + ":" + image.newrelicRuntimeConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.newrelicRuntimeConfiguration.dockerfile);
+
+          Information("Building " + image.name + " newrelic runtime image completed");
+      }
+});
+
+Task("Build-Newrelic-Runtime-Timezone-Tr")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " newrelic runtime timezone tr image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.newrelicRuntimeTimezoneTrConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.newrelicRuntimeTimezoneTrConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.newrelicRuntimeTimezoneTrConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.newrelicRuntimeTimezoneTrConfiguration.name + ":" + image.newrelicRuntimeTimezoneTrConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.newrelicRuntimeTimezoneTrConfiguration.dockerfile);
+
+          Information("Building " + image.name + " newrelic runtime timezone tr image completed");
+      }
+});
+
+Task("Build-Runtime-Timezone-Tr")
+  .Does(() =>
+  {
+      foreach (var image in manifest.images)
+      {
+          Information("Building " + image.name + " newrelic runtime timezone tr image");
+          
+          DockerImageBuildSettings settings = new DockerImageBuildSettings
+          {
+              File = image.dotnetRuntimeTimezoneTrConfiguration.dockerfile + "Dockerfile",
+              Tag = new string[image.dotnetRuntimeTimezoneTrConfiguration.tags.Length],
+              BuildArg = image.buildArgs
+          };
+
+          for (int i = 0; i < image.dotnetRuntimeTimezoneTrConfiguration.tags.Length; i++)
+          {
+              settings.Tag[i] = image.dotnetRuntimeTimezoneTrConfiguration.name + ":" + image.dotnetRuntimeTimezoneTrConfiguration.tags[i];
+          }
+
+          DockerBuild(settings, image.dotnetRuntimeTimezoneTrConfiguration.dockerfile);
+
+          Information("Building " + image.name + " newrelic runtime timezone tr image completed");
+      }
+});
+
 Task("Build-Containers")
   .IsDependentOn("Build-Runtime-Deps")
   .IsDependentOn("Build-DotnetCore-Runtime")
@@ -218,6 +299,9 @@ Task("Build-Containers")
   .IsDependentOn("Build-AspnetCore-Runtime")
   .IsDependentOn("Build-AspnetCore-Runtime-Spa")
   .IsDependentOn("Build-AspnetCore-Build")
+  .IsDependentOn("Build-Newrelic-Runtime")
+  .IsDependentOn("Build-Newrelic-Runtime-Timezone-Tr")
+  .IsDependentOn("Build-Runtime-Timezone-Tr")
   .Does(() =>
 {
   

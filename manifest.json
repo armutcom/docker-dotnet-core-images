@@ -12,7 +12,7 @@
                 "NETCOREAPP_VERSION=netcoreapp2.1",
                 "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.1.5-xenial",
                 "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-xenial",
-                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime:2.1.5-runtime-xenial"
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.1.5-xenial"
             ],
             "runtimeDepsConfiguration": {
                 "name": "armutcom/dotnet-core-runtime",
@@ -64,6 +64,27 @@
                     "2.1-build-xenial",
                     "build-xenial-latest"
                 ]
+            },
+            "newrelicRuntimeConfiguration": {
+                "name": "armutcom/dotnet-core-runtime-newrelic",
+                "dockerfile": "images/dotnet-core/runtime-newrelic/",
+                "tags": [
+                    "2.1.5-xenial"
+                ]
+            },
+            "newrelicRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/dotnet-core-runtime-timezone-tr-newrelic",
+                "dockerfile": "images/dotnet-core/runtime-newrelic-timezone-tr/",
+                "tags": [
+                    "2.1.5-xenial"
+                ]
+            },
+            "dotnetRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/dotnet-core-runtime-timezone-tr",
+                "dockerfile": "images/dotnet-core/runtime-timezone-tr/",
+                "tags": [
+                    "2.1.5-xenial"
+                ]
             }
         },
         {
@@ -78,7 +99,7 @@
                 "NETCOREAPP_VERSION=netcoreapp2.1",
                 "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.1.5-bionic",
                 "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic",
-                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime:2.1.5-runtime-bionic"
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.1.5-bionic"
             ],
             "runtimeDepsConfiguration": {
                 "name": "armutcom/dotnet-core-runtime",
@@ -148,38 +169,65 @@
                     "build-latest",
                     "build"
                 ]
+            },
+            "newrelicRuntimeConfiguration": {
+                "name": "armutcom/dotnet-core-runtime-newrelic",
+                "dockerfile": "images/dotnet-core/runtime-newrelic/",
+                "tags": [
+                    "2.1.5-bionic"
+                ]
+            },
+            "newrelicRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/dotnet-core-runtime-timezone-tr-newrelic",
+                "dockerfile": "images/dotnet-core/runtime-newrelic-timezone-tr/",
+                "tags": [
+                    "2.1.5-bionic"
+                ]
+            },
+            "dotnetRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/dotnet-core-runtime-timezone-tr",
+                "dockerfile": "images/dotnet-core/runtime-timezone-tr/",
+                "tags": [
+                    "2.1.5-bionic"
+                ]
             }
         }
     ],
     "tests": [
         {
             "name": "core-runtime-2.1.5-tests-xenial",
-            "testAppPath": "tests/2.1.5/TestConsoleApp/",
+            "testAppPath": "tests/base/TestConsoleApp/",
             "buildArgs": [
                 "base_image_runtime=armutcom/dotnet-core-runtime:2.1.5-xenial",
                 "base_image_build=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-xenial",
                 "project_path=./TestConsoleApp",
-                "run_target=TestConsoleApp.dll"
+                "run_target=TestConsoleApp.dll",
+                "DOTNET_RUNTIME_VERSION=2.1.5",
+                "NETCOREAPP_VERSION=netcoreapp2.1"
             ]
         },
         {
             "name": "core-runtime-2.1.5-tests-bionic",
-            "testAppPath": "tests/2.1.5/TestConsoleApp/",
+            "testAppPath": "tests/base/TestConsoleApp/",
             "buildArgs": [
                 "base_image_runtime=armutcom/dotnet-core-runtime:2.1.5-bionic",
                 "base_image_build=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic",
                 "project_path=./TestConsoleApp",
-                "run_target=TestConsoleApp.dll"
+                "run_target=TestConsoleApp.dll",
+                "DOTNET_RUNTIME_VERSION=2.1.5",
+                "NETCOREAPP_VERSION=netcoreapp2.1"
             ]
         },
         {
             "name": "aspnet-runtime-2.1.5-tests-xenial",
-            "testAppPath": "tests/2.1.5/TestWebApp/",
+            "testAppPath": "tests/base/TestWebApp/",
             "buildArgs": [
                 "base_image_runtime=armutcom/aspnet-core:2.1.5-xenial",
                 "base_image_build=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-xenial",
                 "project_path=./TestWebApp",
-                "run_target=TestWebApp.dll"
+                "run_target=TestWebApp.dll",
+                "DOTNET_RUNTIME_VERSION=2.1.5",
+                "NETCOREAPP_VERSION=netcoreapp2.1"
             ],
             "port": 22357,
             "httpCalls": [
@@ -189,12 +237,14 @@
         },
         {
             "name": "aspnet-runtime-2.1.5-tests-bionic",
-            "testAppPath": "tests/2.1.5/TestWebApp/",
+            "testAppPath": "tests/base/TestWebApp/",
             "buildArgs": [
                 "base_image_runtime=armutcom/aspnet-core:2.1.5-bionic",
                 "base_image_build=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic",
                 "project_path=./TestWebApp",
-                "run_target=TestWebApp.dll"
+                "run_target=TestWebApp.dll",
+                "DOTNET_RUNTIME_VERSION=2.1.5",
+                "NETCOREAPP_VERSION=netcoreapp2.1"
             ],
             "port": 22358,
             "httpCalls": [

@@ -5,11 +5,16 @@ FROM $base_image_runtime AS base
 WORKDIR /app
 EXPOSE 80
 
+
 FROM $base_image_build AS builder
 ARG project_path
+ARG NETCOREAPP_VERSION
+ARG DOTNET_RUNTIME_VERSION
 WORKDIR /src
 COPY . .
 WORKDIR /src/$project_path
+ENV TARGET_FRAMEWORK ${NETCOREAPP_VERSION}
+ENV PKG_VERSION ${DOTNET_RUNTIME_VERSION}
 RUN dotnet restore
 RUN dotnet build -c Release -o /app
 

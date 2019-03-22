@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="$(DOTNET_RUNTIME_VERSION)" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="$(DOTNET_RUNTIME_VERSION)" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="$(PKG_VERSION)" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="$(PKG_VERSION)" />
   </ItemGroup>
 
   <ItemGroup>
