@@ -15,8 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="$(ASPNETCORE_PKG_VERSION)" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="$(ASPNETCORE_PKG_VERSION)" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="$(DOTNET_RUNTIME_VERSION)" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="$(DOTNET_RUNTIME_VERSION)" />
   </ItemGroup>
 
   <ItemGroup>
