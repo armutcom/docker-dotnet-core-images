@@ -312,6 +312,15 @@ Task("Tests")
   .Does(async () =>{
     foreach (var test in manifest.tests)
     {
+        var commitMessage = EnvironmentVariable("TRAVIS_COMMIT_MESSAGE") ?? "";
+        var skipTests = commitMessage.Contains("skip tests");
+
+        if(!skipTests)
+        {
+            Information("tests skipped");
+            return;
+        }
+
       DockerImageBuildSettings settings = new DockerImageBuildSettings();
       settings.File = test.testAppPath + "Dockerfile";
       settings.Tag = new [] {test.name};
