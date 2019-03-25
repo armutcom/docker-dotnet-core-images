@@ -63,6 +63,7 @@ public class Test
 
 var manifest = DeserializeJsonFromFile<Manifest>("manifest.json");
 var target = Argument("target", "Default");
+var tags = new List<string>();
 
 Task("Default")
     .IsDependentOn("Tests");
@@ -85,6 +86,8 @@ Task("Build-Runtime-Deps")
           {
               settings.Tag[i] = image.runtimeDepsConfiguration.name + ":" + image.runtimeDepsConfiguration.tags[i];
           }
+
+          tags.AddRange(settings.Tag);
 
           DockerBuild(settings, image.runtimeDepsConfiguration.dockerfile);
 
@@ -111,6 +114,8 @@ Task("Build-DotnetCore-Runtime")
               settings.Tag[i] = image.runtimeConfiguration.name + ":" + image.runtimeConfiguration.tags[i];
           }
 
+          tags.AddRange(settings.Tag);
+
           DockerBuild(settings, image.runtimeConfiguration.dockerfile);
 
           Information("Building " + image.name + " runtime image completed");
@@ -135,6 +140,8 @@ Task("Build-DotnetCore-Sdk")
           {
               settings.Tag[i] = image.sdkConfiguration.name + ":" + image.sdkConfiguration.tags[i];
           }
+
+          tags.AddRange(settings.Tag);
 
           DockerBuild(settings, image.sdkConfiguration.dockerfile);
 
@@ -161,6 +168,8 @@ Task("Build-AspnetCore-Runtime")
               settings.Tag[i] = image.aspNetCoreRuntimeConfiguration.name + ":" + image.aspNetCoreRuntimeConfiguration.tags[i];
           }
 
+          tags.AddRange(settings.Tag);
+
           DockerBuild(settings, image.aspNetCoreRuntimeConfiguration.dockerfile);
 
           Information("Building " + image.name + " aspnet core runtime image completed");
@@ -185,6 +194,8 @@ Task("Build-AspnetCore-Runtime-Spa")
           {
               settings.Tag[i] = image.aspNetCoreRuntimeSpaConfiguration.name + ":" + image.aspNetCoreRuntimeSpaConfiguration.tags[i];
           }
+
+          tags.AddRange(settings.Tag);
 
           DockerBuild(settings, image.aspNetCoreRuntimeSpaConfiguration.dockerfile);
 
@@ -211,6 +222,8 @@ Task("Build-AspnetCore-Build")
               settings.Tag[i] = image.aspNetCoreBuildConfiguration.name + ":" + image.aspNetCoreBuildConfiguration.tags[i];
           }
 
+          tags.AddRange(settings.Tag);
+
           DockerBuild(settings, image.aspNetCoreBuildConfiguration.dockerfile);
 
           Information("Building " + image.name + " aspnet core build image completed");
@@ -235,6 +248,8 @@ Task("Build-Newrelic-Runtime")
           {
               settings.Tag[i] = image.newrelicRuntimeConfiguration.name + ":" + image.newrelicRuntimeConfiguration.tags[i];
           }
+
+          tags.AddRange(settings.Tag);
 
           DockerBuild(settings, image.newrelicRuntimeConfiguration.dockerfile);
 
@@ -261,6 +276,8 @@ Task("Build-Newrelic-Runtime-Timezone-Tr")
               settings.Tag[i] = image.newrelicRuntimeTimezoneTrConfiguration.name + ":" + image.newrelicRuntimeTimezoneTrConfiguration.tags[i];
           }
 
+          tags.AddRange(settings.Tag);
+
           DockerBuild(settings, image.newrelicRuntimeTimezoneTrConfiguration.dockerfile);
 
           Information("Building " + image.name + " newrelic runtime timezone tr image completed");
@@ -285,6 +302,8 @@ Task("Build-Runtime-Timezone-Tr")
           {
               settings.Tag[i] = image.dotnetRuntimeTimezoneTrConfiguration.name + ":" + image.dotnetRuntimeTimezoneTrConfiguration.tags[i];
           }
+
+          tags.AddRange(settings.Tag);
 
           DockerBuild(settings, image.dotnetRuntimeTimezoneTrConfiguration.dockerfile);
 
@@ -383,13 +402,9 @@ Task("Publish")
     return;
   }
 
-  foreach (var image in manifest.images)
+  foreach (var tag in tags)
   {
-      for (int i = 0; i < image.aspNetCoreRuntimeConfiguration.tags.Length; i++)
-      {
-          string tag = image.aspNetCoreRuntimeConfiguration.name + ":" + image.aspNetCoreRuntimeConfiguration.tags[i];
-          DockerPush(tag);
-      }
+    DockerPush(tag);
   }
 });
 
