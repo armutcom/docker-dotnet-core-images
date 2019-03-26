@@ -28,10 +28,10 @@ All the images centralized to base images in order to make this repository simpl
 ### AspNet Core Build
 - [`armutcom/aspnet-core-build`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/build/Dockerfile)
 
-### AspNet Core Rintime
+### AspNet Core Runtime
 - [`armutcom/aspnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime/Dockerfile)
 
-### AspNet Core Rintime Spa
+### AspNet Core Runtime Spa
 - [`armutcom/aspnet-core-runtime-spa`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime-spa/Dockerfile)
 
 
