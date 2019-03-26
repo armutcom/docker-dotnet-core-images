@@ -7,9 +7,9 @@ This repo contains the base Docker images for working with .NET Core and the .NE
 |-------|-------|
 | Build | [![Build Status](https://travis-ci.com/armutcom/docker-dotnet-core-images.svg?branch=master)](https://travis-ci.com/armutcom/docker-dotnet-core-images)     | 
 
-All the images centralized to base images in order to make this repository simple and easy to manage.
-
 # Base Images
+
+All the images centralized to base images in order to make this repository simple and easy to manage.
 
 ## Runtime Deps
 - [`armutcom/dotnet-core-runtime-deps ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-16.04/Dockerfile)
