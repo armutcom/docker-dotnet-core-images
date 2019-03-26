@@ -7,25 +7,33 @@ This repo contains the base Docker images for working with .NET Core and the .NE
 |-------|-------|
 | Build | [![Build Status](https://travis-ci.com/armutcom/docker-dotnet-core-images.svg?branch=master)](https://travis-ci.com/armutcom/docker-dotnet-core-images)     | 
 
-# Latest Version of Common Tags
+All the images centralized to base images in order to make this repository simple and easy to manage.
 
-The following tags are the latest stable versions of the most commonly used images. The complete set of tags is listed further down.
+# Base Images
 
-- [`armutcom/aspnet-core:2.1.5`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core:2.1.5`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core-sdk:2.1.5`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
+## Runtime Deps
+- [`armutcom/dotnet-core-runtime-deps ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-16.04/Dockerfile)
+- [`armutcom/dotnet-core-runtime-deps ubuntu-18.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-18.04/Dockerfile)
 
-- [`armutcom/aspnet-core:2.1.3`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core:2.1.3`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core-sdk:2.1.3`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
+## Dotnet Core Runtime
+- [`armutcom/dotnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime/Dockerfile)
+- [`armutcom/dotnet-core-runtime-timezone-tr`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-timezone-tr/Dockerfile)
+- [`armutcom/dotnet-core-runtime-newrelic`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-newrelic/Dockerfile)
+- [`armutcom/dotnet-core-runtime-newrelic-timezone-tr`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-newrelic-timezone-tr/Dockerfile)
 
-- [`armutcom/aspnet-core:2.1.1`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core:2.1.1`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core-sdk:2.1.1`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
+## Dotnet Core Sdk
+- [`armutcom/dotnet-core-sdk ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/sdk/ubuntu-16.04/Dockerfile)
+- [`armutcom/dotnet-core-sdk ubuntu-18.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/sdk/ubuntu-18.04/Dockerfile)
 
-- [`armutcom/aspnet-core:2.0`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core:2.0`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- [`armutcom/dotnet-core-sdk:2.0`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
+## AspNet Core Build
+- [`armutcom/aspnet-core-build`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/build/Dockerfile)
+
+## AspNet Core Rintime
+- [`armutcom/aspnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime/Dockerfile)
+
+## AspNet Core Rintime Spa
+- [`armutcom/aspnet-core-runtime-spa`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime-spa/Dockerfile)
+
 
 # Complete set of Tags
 
@@ -151,6 +159,9 @@ Licensed under MIT, see [LICENSE](LICENSE) for the full text.
 
 * [armutcom/aspnet-core](https://hub.docker.com/r/armutcom/aspnet-core/) for ASP.NET Core images.
 * [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime/) for .NET Core images.
+* [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime-timezone-tr/) for .NET Core Turkish timezone images.
+* [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime-newrelic/) for .NET Core Newrelic images.
+* [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime-timezone-tr-newrelic/) for .NET Core Newrelic - Turkish timezone images.
 * [armutcom/dotnet-core-sdk](https://hub.docker.com/r/armutcom/dotnet-core-sdk/) for .NET Core SDK images.
 
 ## Official Microsoft Hub repos :
