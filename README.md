@@ -7,31 +7,31 @@ This repo contains the base Docker images for working with .NET Core and the .NE
 |-------|-------|
 | Build | [![Build Status](https://travis-ci.com/armutcom/docker-dotnet-core-images.svg?branch=master)](https://travis-ci.com/armutcom/docker-dotnet-core-images)     | 
 
-# Base Images
+## Base Images
 
 All the images centralized to base images in order to make this repository simple and easy to manage.
 
-## Runtime Deps
+### Runtime Deps
 - [`armutcom/dotnet-core-runtime-deps ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-16.04/Dockerfile)
 - [`armutcom/dotnet-core-runtime-deps ubuntu-18.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-18.04/Dockerfile)
 
-## Dotnet Core Runtime
+### Dotnet Core Runtime
 - [`armutcom/dotnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime/Dockerfile)
 - [`armutcom/dotnet-core-runtime-timezone-tr`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-timezone-tr/Dockerfile)
 - [`armutcom/dotnet-core-runtime-newrelic`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-newrelic/Dockerfile)
 - [`armutcom/dotnet-core-runtime-newrelic-timezone-tr`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-newrelic-timezone-tr/Dockerfile)
 
-## Dotnet Core Sdk
+### Dotnet Core Sdk
 - [`armutcom/dotnet-core-sdk ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/sdk/ubuntu-16.04/Dockerfile)
 - [`armutcom/dotnet-core-sdk ubuntu-18.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/sdk/ubuntu-18.04/Dockerfile)
 
-## AspNet Core Build
+### AspNet Core Build
 - [`armutcom/aspnet-core-build`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/build/Dockerfile)
 
-## AspNet Core Rintime
+### AspNet Core Rintime
 - [`armutcom/aspnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime/Dockerfile)
 
-## AspNet Core Rintime Spa
+### AspNet Core Rintime Spa
 - [`armutcom/aspnet-core-runtime-spa`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime-spa/Dockerfile)
 
 
