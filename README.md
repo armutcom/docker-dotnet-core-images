@@ -15,95 +15,95 @@ All the images centralized to base images in order to make this repository simpl
 - [`armutcom/dotnet-core-runtime-deps ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-16.04/Dockerfile)
 - [`armutcom/dotnet-core-runtime-deps ubuntu-18.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/runtime-deps/ubuntu-18.04/Dockerfile)
 
+**Ubuntu Xenial (16.04) amd64 tags**
+- .NET Core Runtime Deps 2.1 : [`armutcom/dotnet-core-runtime-deps:2.1.5-deps-xenial`]
+- .NET Core Runtime Deps 2.2 : [`armutcom/dotnet-core-runtime-deps:2.2.3-deps-xenial`]
+
+**Ubuntu Bionic (18.04) amd64 tags**
+- .NET Core Runtime Deps 2.1 : [`armutcom/dotnet-core-runtime-deps:2.1.5-deps-bionic`]
+- .NET Core Runtime Deps 2.2 : [`armutcom/dotnet-core-runtime-deps:2.2.3-deps-bionic`]
+
 ### Dotnet Core Runtime
 - [`armutcom/dotnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime/Dockerfile)
 - [`armutcom/dotnet-core-runtime-timezone-tr`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-timezone-tr/Dockerfile)
 - [`armutcom/dotnet-core-runtime-newrelic`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-newrelic/Dockerfile)
 - [`armutcom/dotnet-core-runtime-newrelic-timezone-tr`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/runtime-newrelic-timezone-tr/Dockerfile)
 
+**Ubuntu Xenial (16.04) amd64 tags**
+- .NET Core Runtime 2.1.5                               : [`armutcom/dotnet-core-runtime:2.1.5-xenial`]
+- .NET Core Runtime 2.1.5 - Turkish Timezone            : [`armutcom/dotnet-core-runtime-timezone-tr:2.1.5-xenial`]
+- .NET Core Runtime 2.1.5 - Newrelic                    : [`armutcom/dotnet-core-runtime-newrelic:2.1.5-xenial`]
+- .NET Core Runtime 2.1.5 - Newrelic, Turkish Timezone  : [`armutcom/dotnet-core-runtime-newrelic-timezone-tr:2.1.5-xenial`]
+
+<br />
+
+- .NET Core Runtime 2.2.3                               : [`armutcom/dotnet-core-runtime:2.2.3-xenial`]
+- .NET Core Runtime 2.2.3 - Turkish Timezone            : [`armutcom/dotnet-core-runtime-timezone-tr:2.2.3-xenial`]
+- .NET Core Runtime 2.2.3 - Newrelic                    : [`armutcom/dotnet-core-runtime-newrelic:2.2.3-xenial`]
+- .NET Core Runtime 2.2.3 - Newrelic, Turkish Timezone  : [`armutcom/dotnet-core-runtime-newrelic-timezone-tr:2.2.3-xenial`]
+
+**Ubuntu Bionic (18.04) amd64 tags**
+- .NET Core Runtime 2.1.5                               : [`armutcom/dotnet-core-runtime:2.1.5-bionic`]
+- .NET Core Runtime 2.1.5 - Turkish Timezone            : [`armutcom/dotnet-core-runtime-timezone-tr:2.1.5-bionic`]
+- .NET Core Runtime 2.1.5 - Newrelic                    : [`armutcom/dotnet-core-runtime-newrelic:2.1.5-bionic`]
+- .NET Core Runtime 2.1.5 - Newrelic, Turkish Timezone  : [`armutcom/dotnet-core-runtime-newrelic-timezone-tr:2.1.5-bionic`]
+
+<br />
+
+- .NET Core Runtime 2.2.3                               : [`armutcom/dotnet-core-runtime:2.2.3-bionic`]
+- .NET Core Runtime 2.2.3 - Turkish Timezone            : [`armutcom/dotnet-core-runtime-timezone-tr:2.2.3-bionic`]
+- .NET Core Runtime 2.2.3 - Newrelic                    : [`armutcom/dotnet-core-runtime-newrelic:2.2.3-bionic`]
+- .NET Core Runtime 2.2.3 - Newrelic, Turkish Timezone  : [`armutcom/dotnet-core-runtime-newrelic-timezone-tr:2.2.3-bionic`]
+
 ### Dotnet Core Sdk
 - [`armutcom/dotnet-core-sdk ubuntu-16.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/sdk/ubuntu-16.04/Dockerfile)
 - [`armutcom/dotnet-core-sdk ubuntu-18.04`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/dotnet-core/sdk/ubuntu-18.04/Dockerfile)
 
+**Ubuntu Xenial (16.04) amd64 tags**
+- .NET Core Sdk 2.1.5 : [`armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-xenial`, `armutcom/dotnet-core-sdk:2.1.403-xenial`, `armutcom/dotnet-core-sdk:2.1-xenial`]
+- .NET Core Sdk 2.2.3 : [`armutcom/dotnet-core-sdk:2.2.105-runtime-2.2.3-xenial`]
+
+**Ubuntu Bionic (18.04) amd64 tags**
+- .NET Core Sdk 2.1.5 : [`armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic`, `armutcom/dotnet-core-sdk:2.1.403-bionic`, `armutcom/dotnet-core-sdk:2.1-bionic`]
+- .NET Core Sdk 2.2.3 : [`armutcom/dotnet-core-sdk:2.2.105-runtime-2.2.3-bionic`]
+
 ### AspNet Core Build
 - [`armutcom/aspnet-core-build`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/build/Dockerfile)
+
+**Ubuntu Xenial (16.04) amd64 tags**
+- ASP.NET Core Build 2.1.5 : [`armutcom/aspnet-core-build:2.1.5-sdk-2.1.403-node-8.11.2-build-xenial`, `armutcom/aspnet-core-build:2.1.5-sdk-2.1.403-build-xenial`, `armutcom/aspnet-core-build:2.1-build-xenial`]
+- ASP.NET Core Build 2.2.3 : [`armutcom/aspnet-core-build:2.2.3-sdk-2.2.105-node-8.11.2-build-xenial`, `armutcom/aspnet-core-build:2.2.3-sdk-2.2.105-build-xenial`, `armutcom/aspnet-core-build:2.2-build-xenial`]
+
+**Ubuntu Bionic (18.04) amd64 tags**
+- ASP.NET Core Build 2.1.5 : [`armutcom/aspnet-core-build:2.1.5-sdk-2.1.403-node-8.11.2-build-bionic`, `armutcom/aspnet-core-build:2.1.5-sdk-2.1.403-build-bionic`, `armutcom/aspnet-core-build:2.1-build-bionic`]
+- ASP.NET Core Build 2.2.3 : [`armutcom/aspnet-core-build:2.2.3-sdk-2.2.105-node-8.11.2-build-bionic`, `armutcom/aspnet-core-build:2.2.3-sdk-2.2.105-build-bionic`, `armutcom/aspnet-core-build:2.2-build-bionic`]
 
 ### AspNet Core Runtime
 - [`armutcom/aspnet-core-runtime`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime/Dockerfile)
 
+**Ubuntu Xenial (16.04) amd64 tags**
+- ASP.NET Core 2.1.5 : [`armutcom/aspnet-core-runtime:2.1.5-xenial`, `armutcom/aspnet-core-runtime:2.1-xenial`]
+- ASP.NET Core 2.2.3 : [`armutcom/aspnet-core-runtime:2.2.3-xenial`, `armutcom/aspnet-core-runtime:2.2-xenial`]
+
+**Ubuntu Bionic (18.04) amd64 tags**
+- ASP.NET Core 2.1.5 : [`armutcom/aspnet-core-runtime:2.1.5-bionic`, `armutcom/aspnet-core-runtime:2.1-bionic`]
+- ASP.NET Core 2.2.3 : [`armutcom/aspnet-core-runtime:2.2.3-bionic`, `armutcom/aspnet-core-runtime:2.2-bionic`]
+
+
 ### AspNet Core Runtime Spa
 - [`armutcom/aspnet-core-runtime-spa`](https://github.com/armutcom/docker-dotnet-core-images/blob/master/images/aspnet-core/runtime-spa/Dockerfile)
 
+**Ubuntu Xenial (16.04) amd64 tags**
+- ASP.NET Core 2.1.5 SPA : [`armutcom/aspnet-core-runtime-spa:2.1.5-spa-node-8.11.2-xenial`, `armutcom/aspnet-core-runtime-spa:2.1-spa-xenial`]
+- ASP.NET Core 2.2.3 SPA : [`armutcom/aspnet-core-runtime-spa:2.2.3-spa-node-8.11.2-xenial`, `armutcom/aspnet-core-runtime-spa:2.2-spa-xenial`]
 
-# Complete set of Tags
-
-## Ubuntu Xenial (16.04) amd64 tags
-- .NET Core Runtime Deps 2.1 : [`2.1.5-deps-xenial`,`2.1.3-deps-xenial`, `2.1.1-deps-xenial`, `2.1-deps-xenial` (*2.1/ubuntu-16.04/dotnet-core/runtime-deps/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/runtime-deps/ubuntu-16.04/Dockerfile)
-
-### 2.1.5
-- .NET Core Runtime 2.1.5 : [`2.1.5-xenial`, `xenial-latest` (*2.1.5/ubuntu-16.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-16.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.1.5 : [`2.1.403-runtime-2.1.5-xenial`, `2.1.403-xenial`, `2.1-xenial` (*2.1.5/ubuntu-16.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-16.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.1.5 : [`2.1.5-xenial`, `2.1-xenial`, `xenial-latest` (*2.1.5/ubuntu-16.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-16.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.1.5 SPA : [`2.1.5-spa-node-8.11.2-xenial`, `2.1-spa-xenial`, `spa-xenial-latest`, `spa-xenial` (*2.1.5/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.1.5 : [`2.1.5-sdk-2.1.403-node-8.11.2-build-xenial`, `2.1.5-sdk-2.1.403-build-xenial`, `2.1-build-xenial`, `build-xenial-latest` (*2.1.5/ubuntu-16.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-16.04/aspnet-core/build/Dockerfile)
-
-### 2.1.3
-- .NET Core Runtime 2.1.3 : [`2.1.3-xenial` (*2.1.3/ubuntu-16.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-16.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.1.3 : [`2.1.401-runtime-2.1.3-xenial`, `2.1.401-xenial` (*2.1.3/ubuntu-16.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-16.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.1.3 : [`2.1.3-xenial` (*2.1.3/ubuntu-16.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-16.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.1.3 SPA : [`2.1.3-spa-node-8.11.2-xenial` (*2.1.3/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.1.3 : [`2.1.3-sdk-2.1.401-node-8.11.2-build-xenial`, `2.1.3-sdk-2.1.401-build-xenial` (*2.1.3/ubuntu-16.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-16.04/aspnet-core/build/Dockerfile)
-
-### 2.1.1
-- .NET Core Runtime 2.1.1 : [`2.1.1-xenial`, `2.1-xenial` (*2.1/ubuntu-16.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-16.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.1.1 : [`2.1.301-runtime-2.1.1-xenial`, `2.1.301-xenial` (*2.1/ubuntu-16.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-16.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.1.1 : [`2.1.1-xenial` (*2.1/ubuntu-16.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-16.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.1.1 SPA : [`2.1.1-spa-node-8.11.2-xenial` (*2.1/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.1.1 : [`2.1.1-sdk-2.1.301-node-8.11.2-build-xenial`, `2.1.1-sdk-2.1.301-build-xenial` (*2.1/ubuntu-16.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-16.04/aspnet-core/build/Dockerfile)
-
-### 2.0
-- .NET Core Runtime Deps 2.0 : [`2.0.7-deps-xenial`, `2.0-deps-xenial` (*2.0/ubuntu-16.04/dotnet-core/runtime-deps/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/runtime-deps/ubuntu-16.04/Dockerfile)
-- .NET Core Runtime 2.0 : [`2.0.7-xenial`, `2.0-xenial` (*2.0/ubuntu-16.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.0 : [`2.1.200-runtime-2.0.7-xenial`, `2.1.200-xenial`, `2.0-xenial` (*2.0/ubuntu-16.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.0 : [`2.0.8-xenial`, `2.0-xenial` (*2.0/ubuntu-16.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.0 SPA : [`2.0.8-spa-node-8.11.2-xenial`, `2.0-spa-xenial` (*2.0/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.0 : [`2.0.8-sdk-2.1.200-node-8.11.2-build-xenial`, `2.0.8-sdk-2.1.200-build-xenial`, `2.0-build-xenial` (*2.0/ubuntu-16.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-16.04/aspnet-core/build/Dockerfile)
-
-## Ubuntu Bionic (18.04) amd64 tags
-- .NET Core Runtime Deps 2.1 : [`2.1.5-deps-bionic`, `2.1.3-deps-bionic`, `2.1.1-deps-bionic`, `2.1-deps-bionic`, `2.1-deps`, `deps` (*2.1/ubuntu-18.04/dotnet-core/runtime-deps/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/runtime-deps/ubuntu-16.04/Dockerfile)
-
-### 2.1.5
-- .NET Core Runtime 2.1.5 : [`2.1.5-bionic`, `2.1-bionic`, `2.1`, `bionic-latest`, `latest` (*2.1.5/ubuntu-18.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.1.5 : [`2.1.403-runtime-2.1.5-bionic`, `2.1.403-bionic`, `2.1-bionic`, `2.1`, `latest`(*2.1.5/ubuntu-18.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.1.5 : [`2.1.5-bionic`,`2.1-bionic`, `2.1`, `bionic-latest`, `latest` (*2.1.5/ubuntu-18.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.1.5 SPA : [`2.1.5-spa-node-8.11.2-bionic`, `2.1-spa-bionic`, `2.1-spa`, `spa-bionic-latest`, `spa-bionic`, `spa` (*2.1.5/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.1.5 : [`2.1.5-sdk-2.1.403-node-8.11.2-build-bionic`, `2.1.5-sdk-2.1.403-build-bionic`, `2.1-build-bionic`, `2.1-build`, `build-bionic-latest`, `build-latest`, `build` (*2.1.5/ubuntu-18.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.5/ubuntu-18.04/aspnet-core/build/Dockerfile)
-
-### 2.1.3
-- .NET Core Runtime 2.1.3 : [`2.1.3-bionic` (*2.1.3/ubuntu-18.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.1.3 : [`2.1.401-runtime-2.1.3-bionic`, `2.1.401-bionic` (*2.1.3/ubuntu-18.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.1.3 : [`2.1.3-bionic` (*2.1.3/ubuntu-18.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.1.3 SPA : [`2.1.3-spa-node-8.11.2-bionic` (*2.1.3/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.1.3 : [`2.1.3-sdk-2.1.401-node-8.11.2-build-bionic`, `2.1.3-sdk-2.1.401-build-bionic` (*2.1.3/ubuntu-18.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.3/ubuntu-18.04/aspnet-core/build/Dockerfile)
-
-### 2.1.1
-- .NET Core Runtime 2.1.1 : [`2.1.1-bionic` (*2.1/ubuntu-18.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.1.1 : [`2.1.301-runtime-2.1.1-bionic`, `2.1.301-bionic` (*2.1/ubuntu-18.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.1.1 : [`2.1.1-bionic` (*2.1/ubuntu-18.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.1.1 SPA : [`2.1.1-spa-node-8.11.2-bionic` (*2.1/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.1.1 : [`2.1.1-sdk-2.1.301-node-8.11.2-build-bionic`, `2.1.1-sdk-2.1.301-build-bionic` (*2.1/ubuntu-18.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.1.1/ubuntu-18.04/aspnet-core/build/Dockerfile)
-
-### 2.0
-- .NET Core Runtime Deps 2.0 : [`2.0.7-deps-bionic`, `2.0-deps-bionic`, `2.0-deps` (*2.0/ubuntu-18.04/dotnet-core/runtime-deps/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/runtime-deps/ubuntu-16.04/Dockerfile) 
-- .NET Core Runtime 2.0 : [`2.0.7-bionic`, `2.0-bionic`, `2.0` (*2.0/ubuntu-18.04/dotnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/dotnet-core/runtime/Dockerfile)
-- .NET Core Sdk 2.0 : [`2.1.200-runtime-2.0.7-bionic`, `2.1.200-bionic`, `2.0-bionic`, `2.0` (*2.0/ubuntu-18.04/dotnet-core/sdk/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/dotnet-core/sdk/Dockerfile)
-- ASP.NET Core 2.0 : [`2.0.8-bionic`,`2.0-bionic`, `2.0` (*2.0/ubuntu-18.04/aspnet-core/runtime/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/runtime/Dockerfile)
-- ASP.NET Core 2.0 SPA : [`2.0.8-spa-node-8.11.2-bionic`, `2.0-spa-bionic`, `2.0-spa` (*2.0/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/runtime-spa/Dockerfile)
-- ASP.NET Core Build 2.0 : [`2.0.8-sdk-2.1.200-node-8.11.2-build-bionic`, `2.0.8-sdk-2.1.200-build-bionic`, `2.0-build-bionic`, `2.0-build` (*2.0/ubuntu-18.04/aspnet-core/build/Dockerfile*)](https://github.com/armutcom/docker-dotnet-core-images/blob/master/2.0/ubuntu-18.04/aspnet-core/build/Dockerfile)
+**Ubuntu Bionic (18.04) amd64 tags**
+- ASP.NET Core 2.1.5 SPA : [`armutcom/aspnet-core-runtime-spa:2.1.5-spa-node-8.11.2-bionic`, `armutcom/aspnet-core-runtime-spa:2.1-spa-bionic`]
+- ASP.NET Core 2.2.3 SPA : [`armutcom/aspnet-core-runtime-spa:2.2.3-spa-node-8.11.2-bionic`, `armutcom/aspnet-core-runtime-spa:2.2-spa-bionic`]
 
 ## Image variants
 
-The `armutcom/dotnet-core-runtime/`, `armutcom/dotnet-core-sdk/`, `armutcom/aspnet-core/` images come in different flavors, each designed for a specific use case.
+The `armutcom/dotnet-core-runtime/`, `armutcom/dotnet-core-runtime-timezone-tr/`, `armutcom/dotnet-core-runtime-newrelic/`, `armutcom/dotnet-core-runtime-newrelic-timezone-tr/`, `armutcom/dotnet-core-sdk/`, `armutcom/aspnet-core/` images come in different flavors, each designed for a specific use case.
 
 ### `armutcom/aspnet-core:<version>-<os>`
 
@@ -133,6 +133,10 @@ Use this image for your development process (developing, building and testing ap
 
 This image contains the native dependencies needed by .NET Core. It does not include .NET Core. It is for  [self-contained](https://docs.microsoft.com/dotnet/articles/core/deploying/index) applications.
 
+### `armutcom/dotnet-core-runtime-newrelic:<version>-<os>`
+
+This image contains Newrelic with .Net Core runtimes and libraries and is optimized for running .NET Core apps in production.
+
 ### `armutcom/aspnet-core:<aspnet-version>-sdk-<sdk-version>-node-<node-version>-build-<os>`
 
 This is the build image for both ASP.NET Core and ASP.NET Core SPA apps (server pre-rendering) like [Angular Universal](https://universal.angular.io/overview/) or [React Server Rendering](https://redux.js.org/recipes/server-rendering). It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
@@ -159,9 +163,9 @@ Licensed under MIT, see [LICENSE](LICENSE) for the full text.
 
 * [armutcom/aspnet-core](https://hub.docker.com/r/armutcom/aspnet-core/) for ASP.NET Core images.
 * [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime/) for .NET Core images.
-* [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime-timezone-tr/) for .NET Core Turkish timezone images.
-* [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime-newrelic/) for .NET Core Newrelic images.
-* [armutcom/dotnet-core-runtime](https://hub.docker.com/r/armutcom/dotnet-core-runtime-timezone-tr-newrelic/) for .NET Core Newrelic - Turkish timezone images.
+* [armutcom/dotnet-core-runtime-timezone-tr](https://hub.docker.com/r/armutcom/dotnet-core-runtime-timezone-tr/) for .NET Core Turkish timezone images.
+* [armutcom/dotnet-core-runtime-newrelic](https://hub.docker.com/r/armutcom/dotnet-core-runtime-newrelic/) for .NET Core Newrelic images.
+* [armutcom/dotnet-core-runtime-timezone-tr-newrelic](https://hub.docker.com/r/armutcom/dotnet-core-runtime-timezone-tr-newrelic/) for .NET Core Newrelic - Turkish timezone images.
 * [armutcom/dotnet-core-sdk](https://hub.docker.com/r/armutcom/dotnet-core-sdk/) for .NET Core SDK images.
 
 ## Official Microsoft Hub repos :

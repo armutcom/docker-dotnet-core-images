@@ -51,7 +51,6 @@
                 "dockerfile": "images/aspnet-core/runtime-spa/",
                 "tags": [
                     "2.1.5-spa-node-8.11.2-xenial",
-                    "spa-xenial-latest",
                     "2.1-spa-xenial"
                 ]
             },
@@ -61,8 +60,7 @@
                 "tags": [
                     "2.1.5-sdk-2.1.403-build-xenial",
                     "2.1.5-sdk-2.1.403-node-8.11.2-build-xenial",
-                    "2.1-build-xenial",
-                    "build-xenial-latest"
+                    "2.1-build-xenial"
                 ]
             },
             "newrelicRuntimeConfiguration": {
@@ -139,9 +137,7 @@
                 "tags": [
                     "2.1.5-bionic",
                     "2.1-bionic",
-                    "2.1",
-                    "bionic-latest",
-                    "latest"
+                    "2.1"
                 ]
             },
             "aspNetCoreRuntimeSpaConfiguration": {
@@ -151,10 +147,7 @@
                     "2.1.5-spa-node-8.11.2-bionic",
                     "spa-bionic-latest",
                     "2.1-spa-bionic",
-                    "2.1-spa",
-                    "spa-bionic",
-                    "spa-latest",
-                    "spa"
+                    "2.1-spa"
                 ]
             },
             "aspNetCoreBuildConfiguration": {
@@ -164,10 +157,7 @@
                     "2.1.5-sdk-2.1.403-build-bionic",
                     "2.1.5-sdk-2.1.403-node-8.11.2-build-bionic",
                     "2.1-build-bionic",
-                    "2.1-build",
-                    "build-bionic-latest",
-                    "build-latest",
-                    "build"
+                    "2.1-build"
                 ]
             },
             "newrelicRuntimeConfiguration": {
@@ -238,7 +228,8 @@
                 "name": "armutcom/aspnet-core",
                 "dockerfile": "images/aspnet-core/runtime-spa/",
                 "tags": [
-                    "2.2.3-spa-node-8.11.2-xenial"
+                    "2.2.3-spa-node-8.11.2-xenial",
+                    "spa-xenial-latest"
                 ]
             },
             "aspNetCoreBuildConfiguration": {
@@ -246,7 +237,8 @@
                 "dockerfile": "images/aspnet-core/build/",
                 "tags": [
                     "2.2.3-sdk-2.2.105-build-xenial",
-                    "2.2.3-sdk-2.2.105-node-8.11.2-build-xenial"
+                    "2.2.3-sdk-2.2.105-node-8.11.2-build-xenial",
+                    "build-xenial-latest"
                 ]
             },
             "newrelicRuntimeConfiguration": {
@@ -311,14 +303,19 @@
                 "name": "armutcom/aspnet-core",
                 "dockerfile": "images/aspnet-core/runtime/",
                 "tags": [
-                    "2.2.3-bionic"
+                    "2.2.3-bionic",
+                    "bionic-latest",
+                    "latest"
                 ]
             },
             "aspNetCoreRuntimeSpaConfiguration": {
                 "name": "armutcom/aspnet-core",
                 "dockerfile": "images/aspnet-core/runtime-spa/",
                 "tags": [
-                    "2.2.3-spa-node-8.11.2-bionic"
+                    "2.2.3-spa-node-8.11.2-bionic",
+                    "spa-bionic",
+                    "spa-latest",
+                    "spa"
                 ]
             },
             "aspNetCoreBuildConfiguration": {
@@ -326,7 +323,10 @@
                 "dockerfile": "images/aspnet-core/build/",
                 "tags": [
                     "2.2.3-sdk-2.2.105-build-bionic",
-                    "2.2.3-sdk-2.2.105-node-8.11.2-build-bionic"
+                    "2.2.3-sdk-2.2.105-node-8.11.2-build-bionic",
+                    "build-bionic-latest",
+                    "build-latest",
+                    "build"
                 ]
             },
             "newrelicRuntimeConfiguration": {
