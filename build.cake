@@ -52,6 +52,11 @@ public class Manifest
     public Test[] tests { get; set; }
 }
 
+public class TagModel
+{
+    public string[] tags { get; set; }
+}
+
 public class Test
 {
     public string name { get; set; }
@@ -408,15 +413,9 @@ Task("Publish")
         return;
     }
 
-    using (StreamReader reader = new StreamReader(tagsJsonFileName))
-    {
-        string serializedTags = reader.ReadLine();
-        var deserializedTags = JsonConvert.DeserializeObject<dynamic>(serializedTags);
-
-        tags = deserializedTags.tags.ToObject<List<string>>();
-    }
+    var tagModel = DeserializeJsonFromFile<TagModel>(tagsJsonFileName);
     
-    foreach (var tag in tags)
+    foreach (var tag in tagModel.tags)
     {
         DockerPush(tag);
     }
