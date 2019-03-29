@@ -52,6 +52,11 @@ public class Manifest
     public Test[] tests { get; set; }
 }
 
+public class TagModel
+{
+    public string[] tags { get; set; }
+}
+
 public class Test
 {
     public string name { get; set; }
@@ -63,6 +68,7 @@ public class Test
 
 var manifest = DeserializeJsonFromFile<Manifest>("manifest.json");
 var target = Argument("target", "Default");
+string tagsJsonFileName = "tags.json";
 var tags = new List<string>();
 
 Task("Default")
@@ -323,7 +329,12 @@ Task("Build-Containers")
   .IsDependentOn("Build-Runtime-Timezone-Tr")
   .Does(() =>
 {
-  
+    string serializedTags = JsonConvert.SerializeObject(new { tags });
+
+    using(StreamWriter writer = new StreamWriter(tagsJsonFileName))
+    {
+        writer.WriteLine(serializedTags);
+    }
 });
 
 Task("Tests")
@@ -392,20 +403,22 @@ Task("Tests")
 Task("Publish")
     .Does(() =>
 {
-  var commitMessage = EnvironmentVariable("TRAVIS_COMMIT_MESSAGE") ?? "";
-  var triggerDeploy = commitMessage.Contains("trigger deploy");
-  Information(string.Format("Commit message : {0}", commitMessage));
+    var commitMessage = EnvironmentVariable("TRAVIS_COMMIT_MESSAGE") ?? "";
+    var triggerDeploy = commitMessage.Contains("trigger deploy");
+    Information(string.Format("Commit message : {0}", commitMessage));
 
-  if(!triggerDeploy)
-  {
-    Information("deploy skipped");
-    return;
-  }
+    if(!triggerDeploy)
+    {
+        Information("deploy skipped");
+        return;
+    }
 
-  foreach (var tag in tags)
-  {
-    DockerPush(tag);
-  }
+    var tagModel = DeserializeJsonFromFile<TagModel>(tagsJsonFileName);
+    
+    foreach (var tag in tagModel.tags)
+    {
+        DockerPush(tag);
+    }
 });
 
 RunTarget(target);
