@@ -12,7 +12,9 @@
                 "NETCOREAPP_VERSION=netcoreapp2.1",
                 "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.1.5-xenial",
                 "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-xenial",
-                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.1.5-xenial"
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.1.5-xenial",
+                "ASPNETCORE_RUNTIME_IMAGE=armutcom/aspnet-core:2.1.5-xenial",
+                "ASPNETCORE_RUNTIME_NEWRELIC_IMAGE=armutcom/aspnet-core-runtime-newrelic:2.1.5-xenial"
             ],
             "runtimeDepsConfiguration": {
                 "name": "armutcom/dotnet-core-runtime",
@@ -83,6 +85,27 @@
                 "tags": [
                     "2.1.5-xenial"
                 ]
+            },
+            "aspnetcoreNewrelicRuntimeConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic/",
+                "tags": [
+                    "2.1.5-xenial"
+                ]
+            },
+            "aspnetcoreNewrelicRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic-timezone-tr/",
+                "tags": [
+                    "2.1.5-xenial"
+                ]
+            },
+            "aspnetcoreRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr",
+                "dockerfile": "images/aspnet-core/runtime-timezone-tr/",
+                "tags": [
+                    "2.1.5-xenial"
+                ]
             }
         },
         {
@@ -97,7 +120,9 @@
                 "NETCOREAPP_VERSION=netcoreapp2.1",
                 "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.1.5-bionic",
                 "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.1.403-runtime-2.1.5-bionic",
-                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.1.5-bionic"
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.1.5-bionic",
+                "ASPNETCORE_RUNTIME_IMAGE=armutcom/aspnet-core:2.1.5-bionic",
+                "ASPNETCORE_RUNTIME_NEWRELIC_IMAGE=armutcom/aspnet-core-runtime-newrelic:2.1.5-bionic"
             ],
             "runtimeDepsConfiguration": {
                 "name": "armutcom/dotnet-core-runtime",
@@ -180,6 +205,27 @@
                 "tags": [
                     "2.1.5-bionic"
                 ]
+            },
+            "aspnetcoreNewrelicRuntimeConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic/",
+                "tags": [
+                    "2.1.5-bionic"
+                ]
+            },
+            "aspnetcoreNewrelicRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic-timezone-tr/",
+                "tags": [
+                    "2.1.5-bionic"
+                ]
+            },
+            "aspnetcoreRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr",
+                "dockerfile": "images/aspnet-core/runtime-timezone-tr/",
+                "tags": [
+                    "2.1.5-bionic"
+                ]
             }
         },
         {
@@ -194,7 +240,9 @@
                 "NETCOREAPP_VERSION=netcoreapp2.2",
                 "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.2.3-xenial",
                 "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.2.105-runtime-2.2.3-xenial",
-                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.2.3-xenial"
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.2.3-xenial",
+                "ASPNETCORE_RUNTIME_IMAGE=armutcom/aspnet-core:2.2.3-xenial",
+                "ASPNETCORE_RUNTIME_NEWRELIC_IMAGE=armutcom/aspnet-core-runtime-newrelic:2.2.3-xenial"
             ],
             "runtimeDepsConfiguration": {
                 "name": "armutcom/dotnet-core-runtime",
@@ -261,6 +309,27 @@
                 "tags": [
                     "2.2.3-xenial"
                 ]
+            },
+            "aspnetcoreNewrelicRuntimeConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic/",
+                "tags": [
+                    "2.2.3-xenial"
+                ]
+            },
+            "aspnetcoreNewrelicRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic-timezone-tr/",
+                "tags": [
+                    "2.2.3-xenial"
+                ]
+            },
+            "aspnetcoreRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr",
+                "dockerfile": "images/aspnet-core/runtime-timezone-tr/",
+                "tags": [
+                    "2.2.3-xenial"
+                ]
             }
         },
         {
@@ -275,7 +344,9 @@
                 "NETCOREAPP_VERSION=netcoreapp2.2",
                 "ASPNETCORE_RUNTIME_SPA_IMAGE=armutcom/aspnet-core:2.2.3-bionic",
                 "ASPNETCORE_BUILD_IMAGE=armutcom/dotnet-core-sdk:2.2.105-runtime-2.2.3-bionic",
-                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.2.3-bionic"
+                "RUNTIME_NEWRELIC_IMAGE=armutcom/dotnet-core-runtime-newrelic:2.2.3-bionic",
+                "ASPNETCORE_RUNTIME_IMAGE=armutcom/aspnet-core:2.2.3-bionic",
+                "ASPNETCORE_RUNTIME_NEWRELIC_IMAGE=armutcom/aspnet-core-runtime-newrelic:2.2.3-bionic"
             ],
             "runtimeDepsConfiguration": {
                 "name": "armutcom/dotnet-core-runtime",
@@ -346,6 +417,27 @@
             "dotnetRuntimeTimezoneTrConfiguration": {
                 "name": "armutcom/dotnet-core-runtime-timezone-tr",
                 "dockerfile": "images/dotnet-core/runtime-timezone-tr/",
+                "tags": [
+                    "2.2.3-bionic"
+                ]
+            },
+            "aspnetcoreNewrelicRuntimeConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic/",
+                "tags": [
+                    "2.2.3-bionic"
+                ]
+            },
+            "aspnetcoreNewrelicRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr-newrelic",
+                "dockerfile": "images/aspnet-core/runtime-newrelic-timezone-tr/",
+                "tags": [
+                    "2.2.3-bionic"
+                ]
+            },
+            "aspnetcoreRuntimeTimezoneTrConfiguration": {
+                "name": "armutcom/aspnet-core-runtime-timezone-tr",
+                "dockerfile": "images/aspnet-core/runtime-timezone-tr/",
                 "tags": [
                     "2.2.3-bionic"
                 ]
