@@ -377,7 +377,7 @@ Task("Build-Runtime-Timezone-Tr")
       }
 });
 
-Task("Build-Aspnet-Core-Runtime-Timezone-Tr")
+Task("Build-AspnetCore-Runtime-Timezone-Tr")
   .Does(() =>
   {
       foreach (var image in manifest.images)
