@@ -140,9 +140,7 @@
                 "tags": [
                     "2.1.5-bionic",
                     "2.1.5",
-                    "2.1",
-                    "bionic-latest",
-                    "latest"
+                    "2.1"
                 ]
             },
             "sdkConfiguration": {
@@ -152,8 +150,7 @@
                     "2.1.403-runtime-2.1.5-bionic",
                     "2.1.403-bionic",
                     "2.1-bionic",
-                    "2.1",
-                    "latest"
+                    "2.1"
                 ]
             },
             "aspNetCoreRuntimeConfiguration": {
@@ -170,7 +167,6 @@
                 "dockerfile": "images/aspnet-core/runtime-spa/",
                 "tags": [
                     "2.1.5-spa-node-8.11.2-bionic",
-                    "spa-bionic-latest",
                     "2.1-spa-bionic",
                     "2.1-spa"
                 ]
@@ -463,14 +459,17 @@
                 "dockerfile": "images/dotnet-core/runtime/",
                 "tags": [
                     "2.2.5-bionic",
-                    "2.2.5"
+                    "2.2.5",
+                    "bionic-latest",
+                    "latest"
                 ]
             },
             "sdkConfiguration": {
                 "name": "armutcom/dotnet-core-sdk",
                 "dockerfile": "images/dotnet-core/sdk/ubuntu-18.04/",
                 "tags": [
-                    "2.2.204-runtime-2.2.5-bionic"
+                    "2.2.204-runtime-2.2.5-bionic",
+                    "latest"
                 ]
             },
             "aspNetCoreRuntimeConfiguration": {
@@ -687,7 +686,7 @@
                 "DOTNET_RUNTIME_VERSION=2.2.5",
                 "NETCOREAPP_VERSION=netcoreapp2.2"
             ],
-            "port": 22399,
+            "port": 22326,
             "httpCalls": [
                 "/",
                 "/api/"
