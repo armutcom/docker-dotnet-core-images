@@ -401,7 +401,7 @@
                 "base_image_build=armutcom/dotnet-core-sdk:2.2.204-runtime-2.2.5-bionic",
                 "project_path=./TestWebApp",
                 "run_target=TestWebApp.dll",
-                "DOTNET_RUNTIME_VERSION=2.2.5",
+                "DOTNET_RUNTIME_VERSION=2.2.3",
                 "NETCOREAPP_VERSION=netcoreapp2.2"
             ],
             "port": 22326,
